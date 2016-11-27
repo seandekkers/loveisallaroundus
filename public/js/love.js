@@ -13,7 +13,7 @@ var popDown2 = document.querySelector('#menu-pop-down2');
 var footer = document.querySelector('.footer');
 footer.addEventListener('click', menuToggle);
 // popDown1.addEventListener('click',menuToggle);
-
+var width;
 var animationDot;
 var twitterData = [];
 var newTwitterData = [];
@@ -447,6 +447,8 @@ function createDot(){
 		createTweet.className = "tweet";
 		createTweet.id = tweetObj.id;
 		createTweet.style.display = "none";
+		createTweet.style.width = width / 3 + 'px';
+		createTweet.style.height = width / 3 + 'px';
 		
 		createTweet.innerHTML = tweet.tweet;
 		createDotImg.appendChild(createTweet);
