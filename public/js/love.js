@@ -6,10 +6,12 @@ soundOff.addEventListener('click',volumeFunction);
 var logo = document.querySelector("#logo1");
 var lovelinks1 = document.querySelector("#lovelinks1");
 var lovelinks2 = document.querySelector("#lovelinks2");
+logo.addEventListener('click',menuToggle);
 lovelinks1.addEventListener('click',menuToggle);
 lovelinks2.addEventListener('click',menuToggle);
 var popDown1 = document.querySelector('#menu-pop-down1');
 var popDown2 = document.querySelector('#menu-pop-down2');
+var popDown3 = document.querySelector('#menu-pop-down3');
 var twitterIcon = document.querySelector('#twitter');
 var facebookIcon = document.querySelector('#facebook');
 var shareIcon = document.querySelector('#share');
@@ -130,6 +132,7 @@ var allHearts;
 function resizeFunction(){
 	width = document.body.clientWidth;
 	var menuPopType = document.querySelectorAll('.menuPopType');
+	var menuPopTypeLogo = document.querySelector('.menuPopTypeLogo');
 	var heartMenu = document.querySelectorAll('.heartMenu')
 	
 	logo.style.width = width / 7 + 'px';
@@ -150,10 +153,18 @@ function resizeFunction(){
 	soundOffIcon.style.height = width / 60 + 'px';
 	popDown1.style.width = width / 3.5 + 'px';
 	popDown1.style.height = width / 8 + 'px';
-	popDown1.style.left = width / 10 + 'px';
+	popDown1.style.left = width / 12 + 'px';
+	popDown1.style.bottom = width / 30 + 'px';
 	popDown2.style.width = width / 3.5 + 'px';
 	popDown2.style.height = width / 8 + 'px';
 	popDown2.style.right = width / 10 + 'px';
+	popDown2.style.bottom = width / 30 + 'px';
+	popDown3.style.width = width / 9 + 'px';
+	popDown3.style.height = width / 11 + 'px';
+	popDown3.style.left = width / 2.325 + 'px';
+	popDown3.style.bottom = width / 15 + 'px';
+	menuPopTypeLogo.style.fontSize = width / 110 + 'px';
+
 	for(var i = 0; i < menuPopType.length; i++){
 		menuPopType[i].style.fontSize = width / 70 + 'px';
 		heartMenu[i].style.width = width / 40 + 'px';
@@ -185,13 +196,15 @@ function resizeTweets(){
 	for(var i = 0; i < allTweets2.length; i++){
 		allTweets2[i].style.width = width / 5 + 'px';
 		allTweets2[i].style.height = width / 5 + 'px';
-		allTweets[i].style.left = (-1* ((width / 5) / 2)) + 'px';
+		allTweets2[i].style.left = (-1* ((width / 5) / 2)) + 'px';
+		// allTweets2[i].style.top = (1* ((width / 5) / .2)) + 'px';
 	}
 
 	
 	for(var i = 0; i < allHeartRows.length; i++){
 		// allHeartRows[i].style.width = width / 5 + 'px';
-		allHeartRows[i].style.height = width / 20 + 'px';
+		allHeartRows[i].style.height = width / 32 + 'px';
+		allHeartRows[i].style.paddingBottom = width / 200 + 'px';
 	}
 	
 	for(var i = 0; i < allTweetTextSize.length; i++){
@@ -644,6 +657,7 @@ function menuToggle(event){
 	}
 	if(event.target.className == "heartMenu" || event.target.className == "menuPopType"){
 		var tweetMenu = $( event.target ).closest(".menuPop").toggle();
+
 	}
 	if (event.target.id == "lovelinks1"){
 		var pop = $( popDown1 );
@@ -651,7 +665,11 @@ function menuToggle(event){
 	} else if (event.target.id == "lovelinks2"){
 		var pop = $( popDown2 );
 		pop.toggle();
-	}
+	} else if (event.target.id == "logo1"){
+		console.log('logo pop');
+		var pop = $( popDown3 );
+		pop.toggle();
+	} 
 }
 
 function volumeFunction(event){

@@ -137,24 +137,24 @@ a:link {
 	width: 400px;
 	height: 400px;
 	z-index: 5;
-	/*background-color: rgba(214,67,102,.9);*/
 	display: none;
 	border: 0px;
-	/*display: inline-block;*/
+	margin:auto;
+	vertical-align: middle;
 	border-radius: 5%;
 	margin: 0;
 }
 .tweet2{
-	background: url(../img/tweet2.png) no-repeat center top;
+	background: url(../img/tweet.png) no-repeat center top;
 	background-size: 100% 100%;
 	position: relative;
 	width: 400px;
 	height: 400px;
 	z-index: 5;
-	/*background-color: rgba(214,67,102,.9);*/
 	display: none;
 	border: 0px;
-	/*display: inline-block;*/
+	margin:auto;
+	vertical-align: middle;
 	border-radius: 5%;
 	margin: 0;
 }
@@ -167,28 +167,13 @@ a:link {
 	vertical-align: middle;
 	margin: auto;
 	width: 90%;
-	height: 90%;
+	height: auto;
     border: 0px solid black;
     border-collapse: collapse;
     padding: 0px;
-    text-align: left;
-    z-index: 6;
+    z-index: 10;
 }
 
-.image-column{
-	width: 50%;
-	vertical-align: top;
-}
-
-.close {
-    font-size: 12px;
-    align: right;
-    height: 5%;
-    border: 0px solid black;
-    border-collapse: collapse;
-    padding: 0px;
-    text-align: right;
-}
 .heart{
 	width: 65px;
 	height: 65px;
@@ -314,17 +299,18 @@ td.logo{
 }
 
 #menu-pop-down1{
-	background: url(../img/tweet.png) no-repeat center top;
+	background: url(../img/tweet_menu2.png) no-repeat center top;
 	background-size: 100% 100%;
+	background-transform: scale(-1, 1);
 	position: fixed;
 	display:none;
-	bottom: 60px;
-	left:6%;
+	bottom: 40px;
+	left:4%;
 	height: 200px;
 	width: 30%;
 	padding:10px;
 	padding-top: 0px;
-	border-radius: 20px;
+	border-radius: 5px;
 	text-align: center;
 
 
@@ -332,7 +318,7 @@ td.logo{
 
 
 #menu-pop-down2{
-	background: url(../img/tweet.png) no-repeat center top;
+	background: url(../img/tweet_menu.png) no-repeat center top;
 	background-size: 100% 100%;
 	position: fixed;
 	display:none;
@@ -342,7 +328,23 @@ td.logo{
 	width: 30%;
 	padding:10px;
 	padding-top: 0px;
-	border-radius: 20px;
+	border-radius: 5px;
+	text-align: center;
+
+}
+
+#menu-pop-down3{
+	background: url(../img/tweet2.png) no-repeat center top;
+	background-size: 100% 100%;
+	position: fixed;
+	display:none;
+	bottom: 100px;
+	left: 50%;
+	height: 100px;
+	width: 150px;
+	padding:10px;
+	padding-top: 0px;
+	border-radius: 5px;
 	text-align: center;
 
 }
@@ -354,6 +356,16 @@ td.logo{
 	color: rgb(255,255,255);
 	font-size: 20px;
 	position: relative;
+}
+.menuPopTypeLogo{
+	font-family: 'Annie Use Your Telescope', cursive;
+	margin: auto;
+	display: block;
+	width: 90%;
+	color: rgb(255,255,255);
+	font-size: 20px;
+	position: relative;
+	padding:15px;
 }
 
 
