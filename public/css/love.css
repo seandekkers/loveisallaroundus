@@ -160,10 +160,14 @@ a:link {
 }
 
 
-table{
+.tweetTable{
+	
+	position: relative;
+	top:10%;
+	vertical-align: middle;
 	margin: auto;
-	width: 400px;
-	height: 370px;
+	width: 90%;
+	height: 90%;
     border: 0px solid black;
     border-collapse: collapse;
     padding: 0px;
@@ -188,37 +192,25 @@ table{
 .heart{
 	width: 65px;
 	height: 65px;
-	margin:auto;
+	position: relative;
+	margin: auto;
+	left: 40%;
 }
 
 .heartRow {
-    height: 105px;
-    top:15px;
     margin: auto;
-    border-collapse: collapse;
-    padding: 0px;
-    vertical-align: bottom;
-    text-align: center;
+    width:90%;
+    height:50px;
+    top:15px;
+    
+    /*border-collapse: collapse;*/
 }
-.tweetRow {
-    height: 70%;
-    border: 0px solid black;
-    border-collapse: collapse;
-    padding: 15px;
-    vertical-align: text-middle;
-}
-.nameRow {
-    height: 15%;
-    margin-right: 10px;
-    border: 0px solid black;
-    border-collapse: collapse;
-    padding: 15px;
-    vertical-align: bottom;
-    text-align: center;
-}
+
 
 .textTweet{
 	font-family: 'Annie Use Your Telescope', cursive;
+	width: 90%;
+	margin: auto;
 	color: rgb(255,255,255);
 	font-size: 25px;
 	text-align: center;
@@ -226,13 +218,22 @@ table{
 
 .textName{
 	font-family: 'Annie Use Your Telescope', cursive;
+	margin: auto;
+	position: relative;
 	color: rgb(255,255,255);
-	font-size: 16px;
+	width:90%;
+	top:3%;
+	font-size: 18px;
+	text-align: center;
 }
 .textLocation {
 	font-family: 'Annie Use Your Telescope', cursive;
+	margin:auto;
+	width:90%;
 	color: rgb(255,255,255);
-	font-size: 8px;
+	position: relative;
+	top:3%;
+	font-size: 12px;
     height: 10%;
     margin-right: 10px;
     border: 0px solid black;
@@ -309,10 +310,7 @@ td.logo{
 	height: 45px;
 	position: relative;
 	display: block;
-	padding:15px;
-	padding-top:0px;
 	margin: auto;
-	vertical-align: top;
 }
 
 #menu-pop-down1{
@@ -324,7 +322,7 @@ td.logo{
 	left:6%;
 	height: 200px;
 	width: 30%;
-	padding:20px;
+	padding:10px;
 	padding-top: 0px;
 	border-radius: 20px;
 	text-align: center;
@@ -342,7 +340,7 @@ td.logo{
 	right:8%;
 	height: 200px;
 	width: 30%;
-	padding:20px;
+	padding:10px;
 	padding-top: 0px;
 	border-radius: 20px;
 	text-align: center;
@@ -350,9 +348,12 @@ td.logo{
 }
 .menuPopType{
 	font-family: 'Annie Use Your Telescope', cursive;
+	margin: auto;
+	display: block;
+	width: 90%;
 	color: rgb(255,255,255);
 	font-size: 20px;
-	padding: 00px;
+	position: relative;
 }
 
 

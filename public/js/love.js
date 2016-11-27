@@ -10,9 +10,16 @@ lovelinks1.addEventListener('click',menuToggle);
 lovelinks2.addEventListener('click',menuToggle);
 var popDown1 = document.querySelector('#menu-pop-down1');
 var popDown2 = document.querySelector('#menu-pop-down2');
+var twitterIcon = document.querySelector('#twitter');
+var facebookIcon = document.querySelector('#facebook');
+var shareIcon = document.querySelector('#share');
+var soundOnIcon = document.querySelector('#soundOn');
+var soundOffIcon = document.querySelector('#soundOff');
 var footer = document.querySelector('.footer');
 footer.addEventListener('click', menuToggle);
 // popDown1.addEventListener('click',menuToggle);
+var createTweet, tweetTable, tds, tableRow, tableRow2, tableRow3, heartRow, heartImg, tweetRow, nameRow, textTweet, textName, textLocation;
+var allTweets, allTweetTables, allTweetTextSize, allHearts, allHeartRows;
 var width;
 var animationDot;
 var twitterData = [];
@@ -35,6 +42,10 @@ var tweetsJSON = '';
 var jsonGlobal;
 
 document.addEventListener('load', resizeFunction);
+document.addEventListener('click', resizeTweets);
+
+
+
 
 //////////////MUSIC//////////////////////////////////
 
@@ -107,24 +118,93 @@ window.addEventListener('load', start);
 window.addEventListener('load', startDots);
 window.addEventListener('load', resizeFunction);
 window.addEventListener("resize", resizeFunction);
+window.addEventListener("resize", resizeTweets);
 // setInterval(start,1000);
 // setTimeout(startDots, 1000);
-
+var allTweets;
+var allTweetTables;
+var allTweets2;
+var allTweetTextSize;
+var allHearts;
 
 function resizeFunction(){
 	width = document.body.clientWidth;
-	console.log('width' + width);
-
+	var menuPopType = document.querySelectorAll('.menuPopType');
+	var heartMenu = document.querySelectorAll('.heartMenu')
+	
 	logo.style.width = width / 7 + 'px';
 	logo.style.height = width / 14 + 'px';
 	lovelinks1.style.width = width / 6 + 'px';
 	lovelinks1.style.height = width / 12 + 'px';
 	lovelinks2.style.width = width / 6 + 'px';
 	lovelinks2.style.height = width / 12 + 'px';
-	// titleTable.style.height = width / 4 + 'px';
+	twitterIcon.style.width = width / 60 + 'px';
+	twitterIcon.style.height = width / 60 + 'px';
+	facebookIcon.style.width = width / 60 + 'px';
+	facebookIcon.style.height = width / 60 + 'px';
+	shareIcon.style.width = width / 60 + 'px';
+	shareIcon.style.height = width / 60 + 'px';
+	soundOnIcon.style.width = width / 60 + 'px';
+	soundOnIcon.style.height = width / 60 + 'px';
+	soundOffIcon.style.width = width / 60 + 'px';
+	soundOffIcon.style.height = width / 60 + 'px';
+	popDown1.style.width = width / 3.5 + 'px';
+	popDown1.style.height = width / 8 + 'px';
+	popDown1.style.left = width / 10 + 'px';
+	popDown2.style.width = width / 3.5 + 'px';
+	popDown2.style.height = width / 8 + 'px';
+	popDown2.style.right = width / 10 + 'px';
+	for(var i = 0; i < menuPopType.length; i++){
+		menuPopType[i].style.fontSize = width / 70 + 'px';
+		heartMenu[i].style.width = width / 40 + 'px';
+		heartMenu[i].style.height = width / 40 + 'px';
+		menuPopType[i].style.padding = width / 100 + 'px';
+	}
 
-	// lovelinks1 = document.querySelector("#lovelinks1");
-	// lovelinks2
+
+}
+
+function resizeTweets(){
+//GRAB ALL ELEMENTS FOR RESIZE
+	width = document.body.clientWidth;
+	allTweets2 = document.querySelectorAll('.tweet2');
+	allTweets = document.querySelectorAll('.tweet');
+	allTweetTables = document.querySelectorAll(".tweetTable");
+	allHeartRows = document.querySelectorAll(".heartRow");
+	allTweetTextSize = document.querySelectorAll('.textTweet');
+	allNameTextSize = document.querySelectorAll('.textName');
+	allLocationTextSize = document.querySelectorAll('.textLocation');
+	allHearts = document.querySelectorAll('.heart');
+
+	for(var i = 0; i < allTweets.length; i++){
+		allTweets[i].style.width = width / 5 + 'px';
+		allTweets[i].style.height = width / 5 + 'px';
+		allTweets[i].style.left = (-1* ((width / 5) / 2)) + 'px';
+	}
+
+	for(var i = 0; i < allTweets2.length; i++){
+		allTweets2[i].style.width = width / 5 + 'px';
+		allTweets2[i].style.height = width / 5 + 'px';
+		allTweets[i].style.left = (-1* ((width / 5) / 2)) + 'px';
+	}
+
+	
+	for(var i = 0; i < allHeartRows.length; i++){
+		// allHeartRows[i].style.width = width / 5 + 'px';
+		allHeartRows[i].style.height = width / 20 + 'px';
+	}
+	
+	for(var i = 0; i < allTweetTextSize.length; i++){
+		allTweetTextSize[i].style.fontSize = width / 70 + 'px';
+		allNameTextSize[i].style.fontSize = width / 90 + 'px';
+		allLocationTextSize[i].style.fontSize = width / 120 + 'px';
+	}
+	for(var i = 0; i < allHearts.length; i++){
+		allHearts[i].style.width = width / 30 + 'px';
+		allHearts[i].style.height = width / 30 + 'px';
+		// allHeartRows[i].style.left = ((width / 20) / 2) + 'px';
+	}
+	
 
 
 }
@@ -443,15 +523,12 @@ function createDot(){
 	
 		// CREATE TWEET
 
-		var createTweet = document.createElement('div');
+		createTweet = document.createElement('div');
 		createTweet.className = "tweet";
 		createTweet.id = tweetObj.id;
 		createTweet.style.display = "none";
-		createTweet.style.width = width / 3 + 'px';
-		createTweet.style.height = width / 3 + 'px';
-		
-		createTweet.innerHTML = tweet.tweet;
 		createDotImg.appendChild(createTweet);
+		
 
 		if (tweet.x < 50 && tweet.y < 50){
 			createTweet.style.top = 18 + "px";
@@ -487,7 +564,7 @@ function createDot(){
 
 		var dot = document.querySelector('.dot');
 		var tweet = document.querySelector('.tweet');
-		var tweet = document.querySelector('.tweet2');
+		// var tweet2 = document.querySelector('.tweet2');
 
 		dotBody.addEventListener('click', toggleTweet);
 		
@@ -495,8 +572,10 @@ function createDot(){
 		createAnimDot = document.createElement('div');
 		createAnimDot.className = "animDot";
 		createDotImg.appendChild(createAnimDot);
-		
 
+
+
+		
 		animateDot(createAnimDot,offset,createDotImg);
 		makeSound();
 		dotCounter++;
@@ -530,7 +609,6 @@ function makeSound(){
 
 }
 function animateDot(animDot, offset, createDotImg){
-	animationDot
 
 	var size = 0;
 	var alpha = .65;
@@ -554,6 +632,7 @@ function animateDot(animDot, offset, createDotImg){
 	}
 	
 	var animation = setInterval(animationIntervalometer, 40);
+
 }
 
 
