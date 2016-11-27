@@ -1,0 +1,384 @@
+body {
+	background: thistle;
+	background: url(../img/map_01.png) no-repeat left top fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: 100% 100%;
+}
+a:link {
+    color: rgb(244,113,135);
+}
+
+.dot1 {
+	/*background: url("../img/BlueDot.gif") center;*/
+	/*box-shadow: 2px 2px 15px #888888;*/
+	/*background-size: 45px 45px;*/
+	position:fixed;
+	z-index: 10;
+	background-color: rgb(244,113,135);
+	width: 9px;
+	height: 9px;
+	border: 0px;
+	border-radius: 50%;
+	display: inline-block;
+	margin: 0;
+}
+.dot2 {
+	position:fixed;
+	z-index: 10;
+	background-color: rgb(226,80,129);
+	width: 8px;
+	height: 8px;
+	border: 0px;
+	border-radius: 50%;
+	display: inline-block;
+	margin: 0;
+}
+.dot3 {
+	background-color: rgb(214,67,102);
+	position:fixed;
+	z-index: 10;
+	width: 7px;
+	height: 7px;
+	border: 0px;
+	border-radius: 50%;
+	display: inline-block;
+	margin: 0;
+}
+
+.dot4 {
+	background-color: rgb(183,35,67);
+	position:fixed;
+	z-index: 10;
+	width: 7px;
+	height: 7px;
+	border: 0px;
+	border-radius: 50%;
+	display: inline-block;
+	margin: 0;
+}
+.dot5 {
+	background-color: rgb(170,36,59);
+	position:fixed;
+	z-index: 10;
+	width: 7px;
+	height: 7px;
+	border: 0px;
+	border-radius: 50%;
+	display: inline-block;
+	margin: 0;
+}
+
+.animDot {
+	background-color: rgb(244,113,135);
+	position:relative;
+	z-index: 1;
+	border: 0px;
+	border-radius: 50%;
+	/*display: inline-block;*/
+	margin: 0;
+}
+
+
+.footer{
+	position: fixed;
+	width: 100%;
+	bottom:2.5%;
+	left:0px;
+	height:25px;
+	background-color: rgba(255,255,255,.0);
+}
+#twitter{
+	position: fixed;
+	width: 25px;
+	height: 25px;
+	bottom:2.5%;
+	left: 20px;
+}
+#facebook{
+	position: fixed;
+	width: 25px;
+	height: 25px;
+	bottom:2.5%;
+	left: 60px;
+}
+#share{
+	position: fixed;
+	width: 25px;
+	height: 25px;
+	bottom: 2.5%;
+	left: 100px;
+}
+#soundOn{
+	position: fixed;
+	display:inline;
+	/*visibility: visible;*/
+	width: 30px;
+	height: 30px;
+	bottom:2.5%;
+	right: 20px;
+}
+#soundOff{
+	position: fixed;
+	display: none;
+	/*visibility: hidden;*/
+	width: 30px;
+	height: 30px;
+	bottom:2.5%;
+	right: 20px;
+}
+
+
+.tweet{
+	background: url(../img/tweet.png) no-repeat center top;
+	background-size: 100% 100%;
+	position: relative;
+	width: 400px;
+	height: 400px;
+	z-index: 5;
+	/*background-color: rgba(214,67,102,.9);*/
+	display: none;
+	border: 0px;
+	/*display: inline-block;*/
+	border-radius: 5%;
+	margin: 0;
+}
+.tweet2{
+	background: url(../img/tweet2.png) no-repeat center top;
+	background-size: 100% 100%;
+	position: relative;
+	width: 400px;
+	height: 400px;
+	z-index: 5;
+	/*background-color: rgba(214,67,102,.9);*/
+	display: none;
+	border: 0px;
+	/*display: inline-block;*/
+	border-radius: 5%;
+	margin: 0;
+}
+
+
+table{
+	margin: auto;
+	width: 400px;
+	height: 370px;
+    border: 0px solid black;
+    border-collapse: collapse;
+    padding: 0px;
+    text-align: left;
+    z-index: 6;
+}
+
+.image-column{
+	width: 50%;
+	vertical-align: top;
+}
+
+.close {
+    font-size: 12px;
+    align: right;
+    height: 5%;
+    border: 0px solid black;
+    border-collapse: collapse;
+    padding: 0px;
+    text-align: right;
+}
+.heart{
+	width: 65px;
+	height: 65px;
+	margin:auto;
+}
+
+.heartRow {
+    height: 105px;
+    top:15px;
+    margin: auto;
+    border-collapse: collapse;
+    padding: 0px;
+    vertical-align: bottom;
+    text-align: center;
+}
+.tweetRow {
+    height: 70%;
+    border: 0px solid black;
+    border-collapse: collapse;
+    padding: 15px;
+    vertical-align: text-middle;
+}
+.nameRow {
+    height: 15%;
+    margin-right: 10px;
+    border: 0px solid black;
+    border-collapse: collapse;
+    padding: 15px;
+    vertical-align: bottom;
+    text-align: center;
+}
+
+.textTweet{
+	font-family: 'Annie Use Your Telescope', cursive;
+	color: rgb(255,255,255);
+	font-size: 25px;
+	text-align: center;
+}
+
+.textName{
+	font-family: 'Annie Use Your Telescope', cursive;
+	color: rgb(255,255,255);
+	font-size: 16px;
+}
+.textLocation {
+	font-family: 'Annie Use Your Telescope', cursive;
+	color: rgb(255,255,255);
+	font-size: 8px;
+    height: 10%;
+    margin-right: 10px;
+    border: 0px solid black;
+    border-collapse: collapse;
+    padding: 0px;
+    text-align: center;
+}
+.menu {
+	position: fixed;
+	top: 35px;
+	width: 210px;
+	height: 21px;
+	color: rgb(234,119,95);
+	font-size: 16px;
+    padding: 0px;
+    text-indent: -9999px;
+}
+
+/*.titleTable{
+	top: 200px;
+	border: 1px solid black;
+	height:150px;
+}*/
+
+td{
+	border: 0px solid black;
+	width: 33.3%;
+	padding: 3px;
+}
+td.link{
+	margin: auto;
+	vertical-align: middle;	
+
+}
+
+td.logo{
+	margin: auto;
+	vertical-align: middle;
+	width: 250px
+}
+
+
+#logo1 {
+	position: fixed;
+	left:42%;
+	bottom: 0px;
+	display: block;
+	text-align: -9999px;
+	z-index: 4;
+	text-indent: -999px;
+
+}
+
+#lovelinks1{
+	position: fixed;
+	left:23%;
+	bottom: 0px;
+	display: block;
+	text-align: -9999px;
+	z-index: 4;
+	text-indent: -999px;
+}
+#lovelinks2 {
+	position: fixed;
+	right:25%;
+	bottom: 0px;
+	display: block;
+	text-align: -9999px;
+	z-index: 4;
+	text-indent: -999px;
+}
+.heartMenu{
+	width: 45px;
+	height: 45px;
+	position: relative;
+	display: block;
+	padding:15px;
+	padding-top:0px;
+	margin: auto;
+	vertical-align: top;
+}
+
+#menu-pop-down1{
+	background: url(../img/tweet.png) no-repeat center top;
+	background-size: 100% 100%;
+	position: fixed;
+	display:none;
+	bottom: 60px;
+	left:6%;
+	height: 200px;
+	width: 30%;
+	padding:20px;
+	padding-top: 0px;
+	border-radius: 20px;
+	text-align: center;
+
+
+}
+
+
+#menu-pop-down2{
+	background: url(../img/tweet.png) no-repeat center top;
+	background-size: 100% 100%;
+	position: fixed;
+	display:none;
+	bottom: 60px;
+	right:8%;
+	height: 200px;
+	width: 30%;
+	padding:20px;
+	padding-top: 0px;
+	border-radius: 20px;
+	text-align: center;
+
+}
+.menuPopType{
+	font-family: 'Annie Use Your Telescope', cursive;
+	color: rgb(255,255,255);
+	font-size: 20px;
+	padding: 00px;
+}
+
+
+
+
+
+}
+
+h1 {
+	margin: 15px 0;
+}
+h3{
+	font-size: 14px;
+	
+}
+input {
+	padding: 10px;
+	font-size: 20px;
+}
+.results li {
+	padding: 15px;
+	border-bottom: 1px solid grey;
+	clear: left;
+}
+.results img {
+	float: left;
+	height: 60px;
+	margin-right: 20px;
+}
