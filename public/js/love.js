@@ -164,11 +164,15 @@ function resizeFunction(){
 	popDown3.style.left = width / 2.325 + 'px';
 	popDown3.style.bottom = width / 15 + 'px';
 	menuPopTypeLogo.style.fontSize = width / 110 + 'px';
+	menuPopTypeLogo.style.paddingTop = width / 70 + 'px';
+
+	for(var i = 0; i < heartMenu.length; i++){
+		heartMenu[i].style.width = width / 40 + 'px';
+		heartMenu[i].style.height = width / 40 + 'px';
+	}
 
 	for(var i = 0; i < menuPopType.length; i++){
 		menuPopType[i].style.fontSize = width / 70 + 'px';
-		heartMenu[i].style.width = width / 40 + 'px';
-		heartMenu[i].style.height = width / 40 + 'px';
 		menuPopType[i].style.padding = width / 100 + 'px';
 	}
 

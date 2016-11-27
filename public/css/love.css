@@ -356,6 +356,7 @@ td.logo{
 	color: rgb(255,255,255);
 	font-size: 20px;
 	position: relative;
+
 }
 .menuPopTypeLogo{
 	font-family: 'Annie Use Your Telescope', cursive;
@@ -365,7 +366,7 @@ td.logo{
 	color: rgb(255,255,255);
 	font-size: 20px;
 	position: relative;
-	padding:15px;
+	padding-top: 10px;
 }
 
 
