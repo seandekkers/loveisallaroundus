@@ -200,8 +200,8 @@ function resizeTweets(){
 	for(var i = 0; i < allTweets2.length; i++){
 		allTweets2[i].style.width = width / 5 + 'px';
 		allTweets2[i].style.height = width / 5 + 'px';
-		allTweets2[i].style.left = (-1* ((width / 5) / 2)) + 'px';
-		// allTweets2[i].style.top = (1* ((width / 5) / .2)) + 'px';
+		allTweets2[i].style.left = (-1* ((width / 5.2) / 2)) + 'px';
+		allTweets2[i].style.top = (-1 * ((width / 24) / .2)) + 'px';
 	}
 
 	
