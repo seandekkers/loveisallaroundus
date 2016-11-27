@@ -21,6 +21,7 @@
   "homepage": "https://github.com/seandekkers/JSD4#readme",
   "description": "jsd4 class projects",
   "dependencies": {
+    "@google/maps": "^0.3.0",
     "dotenv": "^2.0.0",
     "ejs": "^2.5.2",
     "express": "^4.14.0",
