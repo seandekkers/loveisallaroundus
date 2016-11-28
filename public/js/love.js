@@ -133,36 +133,42 @@ function resizeFunction(){
 	width = document.body.clientWidth;
 	var menuPopType = document.querySelectorAll('.menuPopType');
 	var menuPopTypeLogo = document.querySelector('.menuPopTypeLogo');
-	var heartMenu = document.querySelectorAll('.heartMenu')
+	var heartMenu = document.querySelectorAll('.heartMenu');
+	
 	
 	logo.style.width = width / 7 + 'px';
 	logo.style.height = width / 14 + 'px';
 	lovelinks1.style.width = width / 6 + 'px';
 	lovelinks1.style.height = width / 12 + 'px';
+	lovelinks1.style.left = width / 4.2 + 'px';
 	lovelinks2.style.width = width / 6 + 'px';
 	lovelinks2.style.height = width / 12 + 'px';
+	lovelinks1.style.right = width / 4.2 + 'px';
 	twitterIcon.style.width = width / 60 + 'px';
 	twitterIcon.style.height = width / 60 + 'px';
+	twitterIcon.style.left = width / 95 + 'px';
 	facebookIcon.style.width = width / 60 + 'px';
 	facebookIcon.style.height = width / 60 + 'px';
+	facebookIcon.style.left = width / 29 + 'px';
 	shareIcon.style.width = width / 60 + 'px';
 	shareIcon.style.height = width / 60 + 'px';
+	shareIcon.style.left = width / 17 + 'px';
 	soundOnIcon.style.width = width / 60 + 'px';
 	soundOnIcon.style.height = width / 60 + 'px';
 	soundOffIcon.style.width = width / 60 + 'px';
 	soundOffIcon.style.height = width / 60 + 'px';
 	popDown1.style.width = width / 3.5 + 'px';
 	popDown1.style.height = width / 8 + 'px';
-	popDown1.style.left = width / 12 + 'px';
-	popDown1.style.bottom = width / 30 + 'px';
+	popDown1.style.left = width / 11 + 'px';
+	popDown1.style.bottom = width / 20 + 'px';
 	popDown2.style.width = width / 3.5 + 'px';
 	popDown2.style.height = width / 8 + 'px';
-	popDown2.style.right = width / 10 + 'px';
-	popDown2.style.bottom = width / 30 + 'px';
+	popDown2.style.right = width / 9 + 'px';
+	popDown2.style.bottom = width / 20 + 'px';
 	popDown3.style.width = width / 9 + 'px';
 	popDown3.style.height = width / 11 + 'px';
 	popDown3.style.left = width / 2.325 + 'px';
-	popDown3.style.bottom = width / 15 + 'px';
+	popDown3.style.bottom = width / 12 + 'px';
 	menuPopTypeLogo.style.fontSize = width / 110 + 'px';
 	menuPopTypeLogo.style.paddingTop = width / 70 + 'px';
 
@@ -190,6 +196,7 @@ function resizeTweets(){
 	allNameTextSize = document.querySelectorAll('.textName');
 	allLocationTextSize = document.querySelectorAll('.textLocation');
 	allHearts = document.querySelectorAll('.heart');
+	allGroups = document.querySelectorAll('.group');
 
 	for(var i = 0; i < allTweets.length; i++){
 		allTweets[i].style.width = width / 5 + 'px';
@@ -202,6 +209,9 @@ function resizeTweets(){
 		allTweets2[i].style.height = width / 5 + 'px';
 		allTweets2[i].style.left = (-1* ((width / 5.2) / 2)) + 'px';
 		allTweets2[i].style.top = (-1 * ((width / 24) / .2)) + 'px';
+		//VERTICALLY CENTER TWEET2'S
+		var group = allTweets2[i].childNodes;
+		group[1].style.top = 0;
 	}
 
 	
@@ -212,7 +222,7 @@ function resizeTweets(){
 	}
 	
 	for(var i = 0; i < allTweetTextSize.length; i++){
-		allTweetTextSize[i].style.fontSize = width / 70 + 'px';
+		allTweetTextSize[i].style.fontSize = width / 80 + 'px';
 		allNameTextSize[i].style.fontSize = width / 90 + 'px';
 		allLocationTextSize[i].style.fontSize = width / 120 + 'px';
 	}
@@ -707,7 +717,7 @@ function toggleTweet(event){
 		var child = $( event.target ).children();
 		child.toggle();
 	}
-	if(event.target.className == "heart" || event.target.className == "textTweet" || event.target.className == "textName" || event.target.className == "textLocation" ){
+	if(event.target.className == "heart" || event.target.className == "textTweet" || event.target.className == "textName" || event.target.className == "textLocation" ||  event.target.className == "group" ){
 		// console.log('CONTENTS');
 		var parent = $( event.target ).closest( ".tweet" );
 		parent.toggle();
@@ -715,7 +725,7 @@ function toggleTweet(event){
 		parent2.toggle();
 
 	}
-	if(event.target.className == "tweet" || event.target.className == "tweet2" || event.target.className == "tweetRow" || event.target.className == "nameRow" || event.target.className == "heartRow" ){
+	if(event.target.className == "tweet" || event.target.className == "tweet2" || event.target.className == "tweetRow" || event.target.className == "nameRow" || event.target.className == "heartRow" || event.target.className == "tweetTable" ){
 		// var parent = $( event.target ).closest( ".tweet" );
 		// console.log(parent);
 		// console.log('TABLE');

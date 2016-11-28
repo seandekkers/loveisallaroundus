@@ -27,7 +27,7 @@ a:link {
 	/*background-size: 45px 45px;*/
 	position:fixed;
 	z-index: 10;
-	background-color: rgb(244,113,135);
+	background-color: rgba(244,113,135,.8);
 	width: 9px;
 	height: 9px;
 	border: 0px;
@@ -38,7 +38,7 @@ a:link {
 .dot2 {
 	position:fixed;
 	z-index: 10;
-	background-color: rgb(226,80,129);
+	background-color: rgba(226,80,129,.8);
 	width: 8px;
 	height: 8px;
 	border: 0px;
@@ -47,7 +47,7 @@ a:link {
 	margin: 0;
 }
 .dot3 {
-	background-color: rgb(214,67,102);
+	background-color: rgba(214,67,102,.8);
 	position:fixed;
 	z-index: 10;
 	width: 7px;
@@ -59,7 +59,7 @@ a:link {
 }
 
 .dot4 {
-	background-color: rgb(183,35,67);
+	background-color: rgba(183,35,67,.8);
 	position:fixed;
 	z-index: 10;
 	width: 7px;
@@ -70,7 +70,7 @@ a:link {
 	margin: 0;
 }
 .dot5 {
-	background-color: rgb(170,36,59);
+	background-color: rgba(170,36,59,.8);
 	position:fixed;
 	z-index: 10;
 	width: 7px;
@@ -171,18 +171,28 @@ a:link {
 }
 
 
+
 .tweetTable{
 	
 	position: relative;
-	top:10%;
+	top:7%;
 	vertical-align: middle;
 	margin: auto;
 	width: 90%;
-	height: auto;
+	height: 90%;
     border: 0px solid black;
     border-collapse: collapse;
     padding: 0px;
     z-index: 10;
+}
+
+.group{
+	position: relative;
+	margin:auto;
+  	top: 50%;
+  	max-width:100%;
+    max-height:100%;
+  	transform: translateY(-50%);
 }
 
 .heart{
@@ -195,7 +205,7 @@ a:link {
 
 .heartRow {
     margin: auto;
-    width:90%;
+    width:100%;
     height:50px;
     top:15px;
     
@@ -205,7 +215,7 @@ a:link {
 
 .textTweet{
 	font-family: 'Annie Use Your Telescope', cursive;
-	width: 90%;
+	width: 100%;
 	margin: auto;
 	color: rgb(255,255,255);
 	font-size: 25px;
@@ -217,7 +227,7 @@ a:link {
 	margin: auto;
 	position: relative;
 	color: rgb(255,255,255);
-	width:90%;
+	width:100%;
 	top:3%;
 	font-size: 18px;
 	text-align: center;
@@ -225,7 +235,7 @@ a:link {
 .textLocation {
 	font-family: 'Annie Use Your Telescope', cursive;
 	margin:auto;
-	width:90%;
+	width:100%;
 	color: rgb(255,255,255);
 	position: relative;
 	top:3%;
@@ -285,7 +295,7 @@ td.logo{
 
 #lovelinks1{
 	position: fixed;
-	left:23%;
+	left:25%;
 	bottom: 0px;
 	display: block;
 	text-align: -9999px;
@@ -294,7 +304,7 @@ td.logo{
 }
 #lovelinks2 {
 	position: fixed;
-	right:25%;
+	right:24%;
 	bottom: 0px;
 	display: block;
 	text-align: -9999px;

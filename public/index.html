@@ -78,7 +78,7 @@
 <div class="menuPop" id="menu-pop-down2">
 	<p class= "menuPopType">
 	<img class="heartMenu" src ="img/heart.png">
-	This was created with love using realtime information from twitter and google. Tweets update each minute so check back for more love.
+	This was created with love using realtime information from twitter and google. Tweets update every minute so check back for more love.
 	</p>
 </div>
 
@@ -97,10 +97,12 @@
 <script id="tweet-template" type="text/x-handlebars-template">
 	
 		<div class="tweetTable">
-		  	<div class="heartRow"><img class="heart" src ="img/heart.png"></div>
-		  	<div class="textTweet">{{tweet}}</div>
-		   	<div class ="textName">{{name}}</div>
-		   	<div class ="textLocation">{{location}}</div></td>
+		  	<div class="group">
+			  	<div class="heartRow"><img class="heart" src ="img/heart.png"></div>
+			  	<div class="textTweet">{{tweet}}</div>
+			   	<div class ="textName">{{name}}</div>
+			   	<div class ="textLocation">{{location}}</div></td>
+		   	</div>
 		</div>
 			
 </script>
