@@ -170,11 +170,13 @@ function resizeFunction(){
 	popDown2.style.height = width / 8 + 'px';
 	popDown2.style.right = width / 15 + 'px';
 	popDown2.style.bottom = width / 20 + 'px';
-	popDown3.style.width = width / 4 + 'px';
-	popDown3.style.height = width / 4 + 'px';
-	popDown3.style.left = width / 2.7 + 'px';
+
+	popDown3.style.width = width / 3.7 + 'px';
+	popDown3.style.height = width / 3 + 'px';
+	popDown3.style.left = width / 2.8 + 'px';
 	popDown3.style.bottom = width / 12 + 'px';
-	menuPopTypeLogo.style.fontSize = width / 90 + 'px';
+
+	menuPopTypeLogo.style.fontSize = width / 73 + 'px';
 	menuPopTypeLogo.style.paddingTop = width / 70 + 'px';
 
 	for(var i = 0; i < heartMenu.length; i++){
