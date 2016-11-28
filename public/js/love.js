@@ -136,40 +136,45 @@ function resizeFunction(){
 	var heartMenu = document.querySelectorAll('.heartMenu');
 	
 	
-	logo.style.width = width / 7 + 'px';
-	logo.style.height = width / 14 + 'px';
-	lovelinks1.style.width = width / 6 + 'px';
-	lovelinks1.style.height = width / 12 + 'px';
-	lovelinks1.style.left = width / 4.2 + 'px';
-	lovelinks2.style.width = width / 6 + 'px';
-	lovelinks2.style.height = width / 12 + 'px';
-	lovelinks1.style.right = width / 4.2 + 'px';
+	logo.style.width = width / 8 + 'px';
+	logo.style.height = width / 16 + 'px';
+	lovelinks1.style.width = width / 7 + 'px';
+	lovelinks1.style.height = width / 14 + 'px';
+	lovelinks1.style.left = width / 3.8 + 'px';
+	lovelinks2.style.width = width / 7 + 'px';
+	lovelinks2.style.height = width / 14 + 'px';
+	lovelinks2.style.right = width / 3.5 + 'px';
+
 	twitterIcon.style.width = width / 60 + 'px';
 	twitterIcon.style.height = width / 60 + 'px';
 	twitterIcon.style.left = width / 95 + 'px';
+
 	facebookIcon.style.width = width / 60 + 'px';
 	facebookIcon.style.height = width / 60 + 'px';
 	facebookIcon.style.left = width / 29 + 'px';
+
 	shareIcon.style.width = width / 60 + 'px';
 	shareIcon.style.height = width / 60 + 'px';
 	shareIcon.style.left = width / 17 + 'px';
+
 	soundOnIcon.style.width = width / 60 + 'px';
 	soundOnIcon.style.height = width / 60 + 'px';
 	soundOffIcon.style.width = width / 60 + 'px';
 	soundOffIcon.style.height = width / 60 + 'px';
+
 	popDown1.style.width = width / 3.5 + 'px';
 	popDown1.style.height = width / 8 + 'px';
-	popDown1.style.left = width / 11 + 'px';
+	popDown1.style.left = width / 15 + 'px';
 	popDown1.style.bottom = width / 20 + 'px';
 	popDown2.style.width = width / 3.5 + 'px';
 	popDown2.style.height = width / 8 + 'px';
-	popDown2.style.right = width / 9 + 'px';
+	popDown2.style.right = width / 15 + 'px';
 	popDown2.style.bottom = width / 20 + 'px';
-	popDown3.style.width = width / 9 + 'px';
-	popDown3.style.height = width / 11 + 'px';
-	popDown3.style.left = width / 2.325 + 'px';
+	popDown3.style.width = width / 4 + 'px';
+	popDown3.style.height = width / 4 + 'px';
+	popDown3.style.left = width / 2.7 + 'px';
 	popDown3.style.bottom = width / 12 + 'px';
-	menuPopTypeLogo.style.fontSize = width / 110 + 'px';
+	menuPopTypeLogo.style.fontSize = width / 90 + 'px';
 	menuPopTypeLogo.style.paddingTop = width / 70 + 'px';
 
 	for(var i = 0; i < heartMenu.length; i++){

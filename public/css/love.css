@@ -284,8 +284,8 @@ td.logo{
 
 #logo1 {
 	position: fixed;
-	left:42%;
-	bottom: 0px;
+	left:43%;
+	bottom: 10px;
 	display: block;
 	text-align: -9999px;
 	z-index: 4;
@@ -296,7 +296,7 @@ td.logo{
 #lovelinks1{
 	position: fixed;
 	left:25%;
-	bottom: 0px;
+	bottom: 6px;
 	display: block;
 	text-align: -9999px;
 	z-index: 4;
@@ -305,7 +305,7 @@ td.logo{
 #lovelinks2 {
 	position: fixed;
 	right:24%;
-	bottom: 0px;
+	bottom: 6px;
 	display: block;
 	text-align: -9999px;
 	z-index: 4;
@@ -355,7 +355,7 @@ td.logo{
 }
 
 #menu-pop-down3{
-	background: url(../img/tweet2.png) no-repeat center top;
+	background: url(../img/menu_big.png) no-repeat center top;
 	background-size: 100% 100%;
 	position: fixed;
 	display:none;
