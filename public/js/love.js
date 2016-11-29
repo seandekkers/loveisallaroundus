@@ -44,7 +44,9 @@ var tweetsJSON = '';
 var jsonGlobal;
 
 document.addEventListener('load', resizeFunction);
-document.addEventListener('click', resizeTweets);
+document.addEventListener('resize', resizeTweets);
+document.addEventListener('click', resizeTweet);
+
 
 
 
@@ -164,7 +166,7 @@ function resizeFunction(){
 
 	popDown1.style.width = width / 3.5 + 'px';
 	popDown1.style.height = width / 8 + 'px';
-	popDown1.style.left = width / 15 + 'px';
+	popDown1.style.left = width / 19 + 'px';
 	popDown1.style.bottom = width / 20 + 'px';
 	popDown2.style.width = width / 3.5 + 'px';
 	popDown2.style.height = width / 8 + 'px';
@@ -188,10 +190,59 @@ function resizeFunction(){
 		menuPopType[i].style.fontSize = width / 70 + 'px';
 		menuPopType[i].style.padding = width / 100 + 'px';
 	}
-
-
 }
 
+//RESIZE SINGLE TWEETS ON CLICK
+function resizeTweet(element){
+	
+	if(element.target.className == "dot1" || element.target.className == "dot2" || element.target.className == "dot3" || element.target.className == "dot4" || element.target.className == "dot5"){
+		var children = element.target.childNodes;
+
+		if (children[0].className == "tweet2"){
+			var singleTweet2 = children[0];
+			singleTweet2.style.width = width / 5 + 'px';
+			singleTweet2.style.height = width / 5 + 'px';
+			singleTweet2.style.left = (-1* ((width / 5.2) / 2)) + 'px';
+			singleTweet2.style.top = (-1 * ((width / 24) / .2)) + 'px';
+		} else {
+			var singleTweet = children[0];
+			singleTweet.style.width = width / 5 + 'px';
+			singleTweet.style.height = width / 5 + 'px';
+			singleTweet.style.left = (-1* ((width / 5) / 2)) + 'px';
+		}
+
+		
+		var singleHeart = children[0].childNodes[1].childNodes[1].childNodes[1].childNodes[0];
+		var singleHeartRow = children[0].childNodes[1].childNodes[1].childNodes[1];
+		var singleTweetText = children[0].childNodes[1].childNodes[1].childNodes[3];
+		var singleName = children[0].childNodes[1].childNodes[1].childNodes[5];
+		var singleLocation = children[0].childNodes[1].childNodes[1].childNodes[7];
+
+			
+		singleHeartRow.style.height = width / 32 + 'px';
+		singleHeartRow.style.paddingBottom = width / 80 + 'px';
+
+		singleName.style.fontSize = width / 90 + 'px';
+		singleName.style.paddingTop = width / 115 + 'px';
+
+		singleName.style.fontSize = width / 90 + 'px';
+		singleName.style.paddingTop = width / 115 + 'px';
+
+		singleLocation.style.fontSize = width / 130 + 'px';
+
+		singleHeart.style.width = width / 30 + 'px';
+		singleHeart.style.height = width / 30 + 'px';
+
+
+		if(singleTweetText.innerText.length >= 140){
+				singleTweetText.style.fontSize = width / 90 + 'px';
+		} else {
+			singleTweetText.style.fontSize = width / 80 + 'px';
+		}
+	}
+		
+}
+// RESIZE ALL TWEETS ON RESIZE
 function resizeTweets(){
 //GRAB ALL ELEMENTS FOR RESIZE
 	width = document.body.clientWidth;
@@ -204,6 +255,9 @@ function resizeTweets(){
 	allLocationTextSize = document.querySelectorAll('.textLocation');
 	allHearts = document.querySelectorAll('.heart');
 	allGroups = document.querySelectorAll('.group');
+
+	
+	
 
 	for(var i = 0; i < allTweets.length; i++){
 		allTweets[i].style.width = width / 5 + 'px';
@@ -225,13 +279,20 @@ function resizeTweets(){
 	for(var i = 0; i < allHeartRows.length; i++){
 		// allHeartRows[i].style.width = width / 5 + 'px';
 		allHeartRows[i].style.height = width / 32 + 'px';
-		allHeartRows[i].style.paddingBottom = width / 200 + 'px';
+		allHeartRows[i].style.paddingBottom = width / 80 + 'px';
 	}
 	
 	for(var i = 0; i < allTweetTextSize.length; i++){
-		allTweetTextSize[i].style.fontSize = width / 80 + 'px';
+		if(allTweetTextSize[i].innerText.length >= 140){
+			allTweetTextSize[i].style.fontSize = width / 90 + 'px';
+		} else {
+			allTweetTextSize[i].style.fontSize = width / 80 + 'px';
+		}
 		allNameTextSize[i].style.fontSize = width / 90 + 'px';
-		allLocationTextSize[i].style.fontSize = width / 120 + 'px';
+		allNameTextSize[i].style.paddingTop = width / 115 + 'px';
+		allLocationTextSize[i].style.fontSize = width / 130 + 'px';
+		// allLocationTextSize[i].style.paddingTop = width / 400 + 'px';
+		
 	}
 	for(var i = 0; i < allHearts.length; i++){
 		allHearts[i].style.width = width / 30 + 'px';
@@ -289,12 +350,11 @@ function callTwitter(json){
 	});
 
 	rawTweetCount = twitterData.length;
-	console.log("THERE ARE " + rawTweetCount + " UNFILTERED TWEETS");
 	controller();
 	
 }
 function controller(){
-	console.log('controller');
+
 
 		twitterData.forEach(function(tweet){
 		
@@ -334,7 +394,7 @@ function controller(){
 
 
 function sendCity(location){
-	console.log("SEND TO GEOCODER" + location);
+	// SEND LOCATION STRING TO GEOCODER
 	$.getJSON('/geocoder/'+location, getCoordinates);
 
 }
@@ -343,23 +403,21 @@ function sendCity(location){
 function getCoordinates(json){
 	var lat = 0;
 	var lng = 0;
-	
-	console.log("getCoordinates" + " " + counter);
 
 	var status = json.json.status;
-	// console.log(status);
 
+	//IF CALL STATUS IS OKAY
 	if( status == "OK"){
 			place = json.json.results[0].address_components[0].short_name;
 			lat = json.json.results[0].geometry.location.lat;
 			lng = json.json.results[0].geometry.location.lng;
-			console.log('CALL OKAY');
+			
 			tweetLibrary[counter].location = place;
 			tweetLibrary[counter].lat = lat;
 			tweetLibrary[counter].lng  = lng;
 			
 	} else if( status == "ZERO_RESULTS"){
-		console.log('CALL ZERO RESULTS');
+		// DO NOTHING
 
 	} 	
 
@@ -373,7 +431,7 @@ function coordToValue(lat, lng ){
 		if ( lat != 0 ){
 
 
-		console.log('TO X & Y' + lat + ", " + lng + ", " + counter);
+		// CONVERT COORDINATES TO X,Y VALUE
 		
 		var xValue = 0;
 		var yValue = 0;
@@ -393,18 +451,11 @@ function coordToValue(lat, lng ){
 	counter++;
 
 		// debugger
-
-		
-
-		console.log('COUNTER: '+ counter +' ' + 'LIBRARY LENGTH: ' + tweetLibrary.length)
-		
-
+		// console.log('COUNTER: '+ counter +' ' + 'LIBRARY LENGTH: ' + tweetLibrary.length);
 		if ( counter == tweetLibrary.length){
-			console.log('FILTER TWEETS');
+			//SEND LIBRARY TO FILTER
 			filterTweets();	
 		}
-		
-
 }
 
 var tweetDatabase = {
@@ -415,23 +466,24 @@ var clearLibrary = 0;
 
 function filterTweets(){
 	
-	console.log('FILTER TWEETS');
-	// var emptyCounter = 0;
+	//FILTER TWEETS
 	filteredTweets = tweetLibrary.filter(function(tweet){
+		//RETURN ALL TWEETS WITH X AND Y COORDINATES
 		return tweet.x != 0;
 	});
-	// EMPTY TWEET LIBRARY
+
+	// ADD FILTERED TWEETS TO DATABASE
 
 	filteredTweets.forEach(function(filteredTweet){
 		tweetDatabase.tweet = filteredTweet;
 		addToDataBase(tweetDatabase);
 	})
-
+	// EMPTY TWEET LIBRARY
 	clearAllArrays();
 }
 	
 function clearAllArrays(){
-	console.log('////CLEAR ALL ARRAYS////')
+	// CLEAR ALL ARRAYS
 	twitterData = [];
 	newTwitterData = [];
 	filteredTweets = [];
@@ -449,7 +501,7 @@ ref.on('value', updateApp);
 
 function addToDataBase(fireBaseTweet){
 	
-	console.log('ADD TWEET TO FIREBASE');
+	// ADD TWEET TO FIREBASE
 	ref.push(fireBaseTweet);
 }
 
@@ -459,9 +511,7 @@ function addToDataBase(fireBaseTweet){
 function updateApp(snapshot) {
 
 	fireBaseCount = snapshot.numChildren();
-	// postTweet2 = snapshot.child("tweet");
-
-	console.log("THERE ARE " + fireBaseCount + 'TWEETS');
+	// console.log("THERE ARE " + fireBaseCount + 'TWEETS');
 
 	snapshot.forEach(function(childSnapshot) {
       // childData will be the actual contents of the child
@@ -469,9 +519,7 @@ function updateApp(snapshot) {
   })
 
 	if( fireBaseCount >= 500 ){ 
-
-
-		console.log('REMOVE OLDEST TWEET')
+		// REMOVE OLDEST TWEETS
 			ref.once('child_added', function(snapshot){
 		  snapshot.ref().remove();  
 		});
@@ -558,13 +606,13 @@ function createDot(){
 		// CREATE TWEET
 
 		createTweet = document.createElement('div');
-		createTweet.className = "tweet";
 		createTweet.id = tweetObj.id;
 		createTweet.style.display = "none";
 		createDotImg.appendChild(createTweet);
 		
 
 		if (tweet.x < 50 && tweet.y < 50){
+			createTweet.className = "tweet";
 			createTweet.style.top = 18 + "px";
 			createTweet.style.left = -196 + "px";
 
@@ -582,6 +630,7 @@ function createDot(){
 
 		} else if (tweet.x > 50 && tweet.y < 50){
 			// console.log('upper right');
+			createTweet.className = "tweet";
 			createTweet.style.top = 18 + "px";
 			createTweet.style.left = -196 + "px";
 
@@ -676,7 +725,7 @@ function menuToggle(event){
 	if(event.target.className == "menuPop" ){
 		var tweetMenu = $( event.target ).toggle();
 	}
-	if(event.target.className == "heartMenu" || event.target.className == "menuPopType"){
+	if(event.target.className == "heartMenu" || event.target.className == "menuPopType" || event.target.className == "menuPopTypeLogo"){
 		var tweetMenu = $( event.target ).closest(".menuPop").toggle();
 
 	}
