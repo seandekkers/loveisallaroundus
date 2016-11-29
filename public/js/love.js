@@ -6,9 +6,8 @@ soundOff.addEventListener('click',volumeFunction);
 var logo = document.querySelector("#logo1");
 // logo.addEventListener('click',menuToggle);
 var logoPop = document.querySelector('#logoPop');
-var twitterIcon = document.querySelector('#twitter');
-var facebookIcon = document.querySelector('#facebook');
-var shareIcon = document.querySelector('#share');
+var twitterIcon = document.querySelector('#twitterIcon');
+var facebookIcon = document.querySelector('#facebookIcon');
 var soundOnIcon = document.querySelector('#soundOn');
 var soundOffIcon = document.querySelector('#soundOff');
 var footer = document.querySelector('.footer');
@@ -37,9 +36,16 @@ var id ='';
 var tweetsJSON = '';
 var jsonGlobal;
 
-document.addEventListener('load', resizeFunction);
-document.addEventListener('resize', resizeTweets);
-document.addEventListener('click', resizeTweet);
+window.addEventListener('load', resizeFunction);
+window.addEventListener('load', start);
+window.addEventListener('load', startDots);
+
+window.addEventListener('click', resizeTweet);
+
+window.addEventListener('resize', resizeFunction);
+window.addEventListener('resize', resizeTweets);
+
+
 
 
 
@@ -112,11 +118,7 @@ var soundSet1 = [],
 
 
 
-window.addEventListener('load', start);
-window.addEventListener('load', startDots);
-window.addEventListener('load', resizeFunction);
-window.addEventListener("resize", resizeFunction);
-window.addEventListener("resize", resizeTweets);
+
 // setInterval(start,1000);
 // setTimeout(startDots, 1000);
 var allTweets;
@@ -143,15 +145,13 @@ function resizeFunction(){
 
 	twitterIcon.style.width = width / 60 + 'px';
 	twitterIcon.style.height = width / 60 + 'px';
-	twitterIcon.style.left = width / 95 + 'px';
+	twitterIcon.style.right = width / 25 + 'px';
 
-	facebookIcon.style.width = width / 60 + 'px';
-	facebookIcon.style.height = width / 60 + 'px';
-	facebookIcon.style.left = width / 29 + 'px';
+	facebookIcon.style.width = width / 65 + 'px';
+	facebookIcon.style.height = width / 65 + 'px';
+	facebookIcon.style.right = width / 15 + 'px';
 
-	shareIcon.style.width = width / 60 + 'px';
-	shareIcon.style.height = width / 60 + 'px';
-	shareIcon.style.left = width / 17 + 'px';
+
 
 	soundOnIcon.style.width = width / 60 + 'px';
 	soundOnIcon.style.height = width / 60 + 'px';
@@ -167,8 +167,8 @@ function resizeFunction(){
 	// popDown2.style.right = width / 15 + 'px';
 	// popDown2.style.bottom = width / 20 + 'px';
 
-	logoPop.style.width = width / 3.3 + 'px';
-	logoPop.style.height = width / 2.6 + 'px';
+	logoPop.style.width = width / 3.7 + 'px';
+	logoPop.style.height = width / 2.8 + 'px';
 	logoPop.style.left = width / 2.8 + 'px';
 	// logoPop.style.bottom = 50 + '%';
 	// logoPop.style.bottom = width / 12 + 'px';
@@ -739,10 +739,8 @@ function volumeFunction(event){
 	$soundOff.toggle();
 
 	if(event.target.id =="soundOn"){
-		console.log('Sound off');
 		Howler.volume(0.0);
 	} else if ( event.target.id =="soundOff" ){
-		console.log('Sound on');
 		Howler.volume(1.0);
 
 	}

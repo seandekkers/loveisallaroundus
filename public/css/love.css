@@ -11,7 +11,7 @@
 
 body {
 	background: thistle;
-	background: url(../img/map_01.png) no-repeat left top fixed;
+	background: url(../img/map.png) no-repeat left top fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -102,6 +102,13 @@ a:link {
 }
 
 
+.twitter-share-button{
+	padding-left: 25px;
+}
+#fb-root{
+	padding-left: 25px;
+}
+
 .footer{
 	cursor: pointer; 
 	cursor: hand;
@@ -112,33 +119,26 @@ a:link {
 	height:25px;
 	background-color: rgba(255,255,255,.0);
 }
-#twitter{
+
+#twitterIcon{
 	cursor: pointer; 
 	cursor: hand;
 	position: fixed;
 	width: 25px;
 	height: 25px;
 	bottom:2.5%;
-	left: 20px;
+	right: 60px;
 }
-#facebook{
+#facebookIcon{
 	cursor: pointer; 
 	cursor: hand;
 	position: fixed;
 	width: 25px;
 	height: 25px;
 	bottom:2.5%;
-	left: 60px;
+	right: 90px;
 }
-#share{
-	cursor: pointer; 
-	cursor: hand;
-	position: fixed;
-	width: 25px;
-	height: 25px;
-	bottom: 2.5%;
-	left: 100px;
-}
+
 #soundOn{
 	cursor: pointer; 
 	cursor: hand;
