@@ -4,14 +4,8 @@ var soundOn = document.querySelector('#soundOn');
 soundOn.addEventListener('click',volumeFunction);
 soundOff.addEventListener('click',volumeFunction);
 var logo = document.querySelector("#logo1");
-var lovelinks1 = document.querySelector("#lovelinks1");
-var lovelinks2 = document.querySelector("#lovelinks2");
-logo.addEventListener('click',menuToggle);
-lovelinks1.addEventListener('click',menuToggle);
-lovelinks2.addEventListener('click',menuToggle);
-var popDown1 = document.querySelector('#menu-pop-down1');
-var popDown2 = document.querySelector('#menu-pop-down2');
-var popDown3 = document.querySelector('#menu-pop-down3');
+// logo.addEventListener('click',menuToggle);
+var logoPop = document.querySelector('#logoPop');
 var twitterIcon = document.querySelector('#twitter');
 var facebookIcon = document.querySelector('#facebook');
 var shareIcon = document.querySelector('#share');
@@ -140,12 +134,12 @@ function resizeFunction(){
 	
 	logo.style.width = width / 8 + 'px';
 	logo.style.height = width / 16 + 'px';
-	lovelinks1.style.width = width / 7 + 'px';
-	lovelinks1.style.height = width / 14 + 'px';
-	lovelinks1.style.left = width / 3.8 + 'px';
-	lovelinks2.style.width = width / 7 + 'px';
-	lovelinks2.style.height = width / 14 + 'px';
-	lovelinks2.style.right = width / 3.5 + 'px';
+	// lovelinks1.style.width = width / 7 + 'px';
+	// lovelinks1.style.height = width / 14 + 'px';
+	// lovelinks1.style.left = width / 3.8 + 'px';
+	// lovelinks2.style.width = width / 7 + 'px';
+	// lovelinks2.style.height = width / 14 + 'px';
+	// lovelinks2.style.right = width / 3.5 + 'px';
 
 	twitterIcon.style.width = width / 60 + 'px';
 	twitterIcon.style.height = width / 60 + 'px';
@@ -164,21 +158,22 @@ function resizeFunction(){
 	soundOffIcon.style.width = width / 60 + 'px';
 	soundOffIcon.style.height = width / 60 + 'px';
 
-	popDown1.style.width = width / 3.5 + 'px';
-	popDown1.style.height = width / 8 + 'px';
-	popDown1.style.left = width / 19 + 'px';
-	popDown1.style.bottom = width / 20 + 'px';
-	popDown2.style.width = width / 3.5 + 'px';
-	popDown2.style.height = width / 8 + 'px';
-	popDown2.style.right = width / 15 + 'px';
-	popDown2.style.bottom = width / 20 + 'px';
+	// popDown1.style.width = width / 3.5 + 'px';
+	// popDown1.style.height = width / 8 + 'px';
+	// popDown1.style.left = width / 19 + 'px';
+	// popDown1.style.bottom = width / 20 + 'px';
+	// popDown2.style.width = width / 3.5 + 'px';
+	// popDown2.style.height = width / 8 + 'px';
+	// popDown2.style.right = width / 15 + 'px';
+	// popDown2.style.bottom = width / 20 + 'px';
 
-	popDown3.style.width = width / 3.7 + 'px';
-	popDown3.style.height = width / 3 + 'px';
-	popDown3.style.left = width / 2.8 + 'px';
-	popDown3.style.bottom = width / 12 + 'px';
+	logoPop.style.width = width / 3.3 + 'px';
+	logoPop.style.height = width / 2.6 + 'px';
+	logoPop.style.left = width / 2.8 + 'px';
+	// logoPop.style.bottom = 50 + '%';
+	// logoPop.style.bottom = width / 12 + 'px';
 
-	menuPopTypeLogo.style.fontSize = width / 73 + 'px';
+	menuPopTypeLogo.style.fontSize = width / 60 + 'px';
 	menuPopTypeLogo.style.paddingTop = width / 70 + 'px';
 
 	for(var i = 0; i < heartMenu.length; i++){
@@ -729,15 +724,8 @@ function menuToggle(event){
 		var tweetMenu = $( event.target ).closest(".menuPop").toggle();
 
 	}
-	if (event.target.id == "lovelinks1"){
-		var pop = $( popDown1 );
-		pop.toggle();
-	} else if (event.target.id == "lovelinks2"){
-		var pop = $( popDown2 );
-		pop.toggle();
-	} else if (event.target.id == "logo1"){
-		console.log('logo pop');
-		var pop = $( popDown3 );
+	if (event.target.id == "logo1"){
+		var pop = $( logoPop );
 		pop.toggle();
 	} 
 }

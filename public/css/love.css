@@ -307,35 +307,8 @@ a:link {
 	text-align: -9999px;
 	z-index: 4;
 	text-indent: -999px;
-
 }
 
-#lovelinks1{
-	cursor: pointer; 
-	cursor: hand;
-	position: fixed;
-	width:0px;
-	height:0px;
-	left:25%;
-	bottom: 6px;
-	display: block;
-	text-align: -9999px;
-	z-index: 4;
-	text-indent: -999px;
-}
-#lovelinks2 {
-	cursor: pointer; 
-	cursor: hand;
-	position: fixed;
-	width:0px;
-	height:0px;
-	right:24%;
-	bottom: 6px;
-	display: block;
-	text-align: -9999px;
-	z-index: 4;
-	text-indent: -999px;
-}
 .heartMenu{
 	cursor: pointer; 
 	cursor: hand;
@@ -346,53 +319,14 @@ a:link {
 	margin: auto;
 }
 
-#menu-pop-down1{
-	cursor: pointer; 
-	cursor: hand;
-	background: url(../img/tweet_menu2.png) no-repeat center top;
-	background-size: 100% 100%;
-	background-transform: scale(-1, 1);
-	position: fixed;
-	display:none;
-	bottom: 40px;
-	left:4%;
-	height: 200px;
-	width: 30%;
-	padding:10px;
-	padding-top: 0px;
-	border-radius: 5px;
-	text-align: center;
-
-
-}
-
-
-#menu-pop-down2{
-	cursor: pointer; 
-	cursor: hand;
-	background: url(../img/tweet_menu.png) no-repeat center top;
-	background-size: 100% 100%;
-	position: fixed;
-	display:none;
-	bottom: 60px;
-	right:8%;
-	height: 200px;
-	width: 30%;
-	padding:10px;
-	padding-top: 0px;
-	border-radius: 5px;
-	text-align: center;
-
-}
-
-#menu-pop-down3{
+#logoPop{
 	cursor: pointer; 
 	cursor: hand;
 	background: url(../img/menu_big.png) no-repeat center top;
 	background-size: 100% 100%;
 	position: fixed;
 	display:none;
-	bottom: 100px;
+	top: 45%;
 	left: 50%;
 	height: 100px;
 	width: 150px;
@@ -400,6 +334,7 @@ a:link {
 	padding-top: 0px;
 	border-radius: 5px;
 	text-align: center;
+	transform: translateY(-50%);
 
 }
 .menuPopType{
