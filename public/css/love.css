@@ -347,6 +347,18 @@ a:link {
 	position: relative;
 
 }
+
+.email{
+	font-family: 'Annie Use Your Telescope', cursive;
+	margin: auto;
+	display: block;
+	width: 90%;
+	color: rgb(255,255,255);
+	font-size: 20px;
+	position: relative;
+
+}
+
 .menuPopTypeLogo{
 	cursor: pointer; 
 	cursor: hand;

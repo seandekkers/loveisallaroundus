@@ -132,6 +132,7 @@ function resizeFunction(){
 	var menuPopType = document.querySelectorAll('.menuPopType');
 	var menuPopTypeLogo = document.querySelector('.menuPopTypeLogo');
 	var heartMenu = document.querySelectorAll('.heartMenu');
+	var email = document.querySelector('.email');
 	
 	
 	logo.style.width = width / 8 + 'px';
@@ -172,16 +173,17 @@ function resizeFunction(){
 
 	logoPop.style.width = width / 3.0 + 'px';
 	logoPop.style.height = width / 2.7 + 'px';
-	logoPop.style.left = width / 2.8 + 'px';
+	logoPop.style.left = width / 3.1 + 'px';
 	// logoPop.style.bottom = 50 + '%';
 	// logoPop.style.bottom = width / 12 + 'px';
 
 	menuPopTypeLogo.style.fontSize = width / 60 + 'px';
 	menuPopTypeLogo.style.paddingTop = width / 70 + 'px';
+	email.style.fontSize = width / 90 + 'px';
 
 	for(var i = 0; i < heartMenu.length; i++){
-		heartMenu[i].style.width = width / 40 + 'px';
-		heartMenu[i].style.height = width / 40 + 'px';
+		heartMenu[i].style.width = width / 25 + 'px';
+		heartMenu[i].style.height = width / 25 + 'px';
 	}
 
 	for(var i = 0; i < menuPopType.length; i++){
