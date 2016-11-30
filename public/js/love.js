@@ -155,8 +155,11 @@ function resizeFunction(){
 
 	soundOnIcon.style.width = width / 60 + 'px';
 	soundOnIcon.style.height = width / 60 + 'px';
+	soundOnIcon.style.right = width / 75 + 'px';
+
 	soundOffIcon.style.width = width / 60 + 'px';
 	soundOffIcon.style.height = width / 60 + 'px';
+	soundOffIcon.style.right = width / 75 + 'px';
 
 	// popDown1.style.width = width / 3.5 + 'px';
 	// popDown1.style.height = width / 8 + 'px';
