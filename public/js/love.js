@@ -167,8 +167,8 @@ function resizeFunction(){
 	// popDown2.style.right = width / 15 + 'px';
 	// popDown2.style.bottom = width / 20 + 'px';
 
-	logoPop.style.width = width / 3.7 + 'px';
-	logoPop.style.height = width / 2.8 + 'px';
+	logoPop.style.width = width / 3.0 + 'px';
+	logoPop.style.height = width / 2.7 + 'px';
 	logoPop.style.left = width / 2.8 + 'px';
 	// logoPop.style.bottom = 50 + '%';
 	// logoPop.style.bottom = width / 12 + 'px';
