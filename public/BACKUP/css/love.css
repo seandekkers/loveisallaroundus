@@ -1,0 +1,373 @@
+@media screen and (orientation: portriat) {
+  #container {
+    -ms-transform: rotate(-90deg); /* IE 9 */
+    -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+    transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    overflow: scroll;
+  }
+}	
+
+body {
+	background: thistle;
+	background: url(../img/map.jpg) no-repeat left top fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: 100% 100%;
+}
+a:link {
+    color: rgb(244,113,135);
+}
+
+.dot1 {
+	/*background: url("../img/BlueDot.gif") center;*/
+	/*box-shadow: 2px 2px 15px #888888;*/
+	/*background-size: 45px 45px;*/
+	cursor: pointer; 
+	cursor: hand;
+	position:fixed;
+	z-index: 10;
+	background-color: rgba(244,113,135,.8);
+	width: 9px;
+	height: 9px;
+	border: 0px;
+	border-radius: 50%;
+	display: inline-block;
+	margin: 0;
+}
+.dot2 {
+	cursor: pointer; 
+	cursor: hand;
+	position:fixed;
+	z-index: 10;
+	background-color: rgba(226,80,129,.8);
+	width: 8px;
+	height: 8px;
+	border: 0px;
+	border-radius: 50%;
+	display: inline-block;
+	margin: 0;
+}
+.dot3 {
+	cursor: pointer; 
+	cursor: hand;
+	background-color: rgba(214,67,102,.8);
+	position:fixed;
+	z-index: 10;
+	width: 7px;
+	height: 7px;
+	border: 0px;
+	border-radius: 50%;
+	display: inline-block;
+	margin: 0;
+}
+
+.dot4 {
+	cursor: pointer; 
+	cursor: hand;
+	background-color: rgba(183,35,67,.8);
+	position:fixed;
+	z-index: 10;
+	width: 7px;
+	height: 7px;
+	border: 0px;
+	border-radius: 50%;
+	display: inline-block;
+	margin: 0;
+}
+.dot5 {
+	cursor: pointer; 
+	cursor: hand;
+	background-color: rgba(170,36,59,.8);
+	position:fixed;
+	z-index: 10;
+	width: 7px;
+	height: 7px;
+	border: 0px;
+	border-radius: 50%;
+	display: inline-block;
+	margin: 0;
+}
+
+.animDot {
+	background-color: rgb(244,113,135);
+	position:relative;
+	z-index: 1;
+	border: 0px;
+	border-radius: 50%;
+	/*display: inline-block;*/
+	margin: 0;
+}
+
+
+.twitter-share-button{
+	padding-left: 25px;
+}
+#fb-root{
+	padding-left: 25px;
+}
+
+.footer{
+	cursor: pointer; 
+	cursor: hand;
+	position: fixed;
+	width: 100%;
+	bottom:2.5%;
+	left:0px;
+	height:25px;
+	background-color: rgba(255,255,255,.0);
+}
+
+#twitterIcon{
+	cursor: pointer; 
+	cursor: hand;
+	position: fixed;
+	width: 25px;
+	height: 25px;
+	bottom:2.5%;
+	right: 60px;
+}
+#facebookIcon{
+	cursor: pointer; 
+	cursor: hand;
+	position: fixed;
+	width: 25px;
+	height: 25px;
+	bottom:2.5%;
+	right: 90px;
+}
+
+#soundOn{
+	cursor: pointer; 
+	cursor: hand;
+	position: fixed;
+	display:inline;
+	/*visibility: visible;*/
+	width: 30px;
+	height: 30px;
+	bottom:2.5%;
+	right: 20px;
+}
+#soundOff{
+	cursor: pointer; 
+	cursor: hand;
+	position: fixed;
+	display: none;
+	/*visibility: hidden;*/
+	width: 30px;
+	height: 30px;
+	bottom:2.5%;
+	right: 20px;
+}
+
+
+.tweet{
+	cursor: pointer; 
+	cursor: hand;
+	background: url(../img/tweet.png) no-repeat center top;
+	background-size: 100% 100%;
+	position: relative;
+	width: 400px;
+	height: 400px;
+	z-index: 5;
+	display: none;
+	border: 0px;
+	margin:auto;
+	vertical-align: middle;
+	border-radius: 5%;
+	margin: 0;
+}
+.tweet2{
+	cursor: pointer; 
+	cursor: hand;
+	background: url(../img/tweet2.png) no-repeat center top;
+	background-size: 100% 100%;
+	position: relative;
+	width: 400px;
+	height: 400px;
+	z-index: 5;
+	display: none;
+	border: 0px;
+	margin:auto;
+	vertical-align: middle;
+	border-radius: 5%;
+	margin: 0;
+}
+
+
+
+.tweetTable{
+	cursor: pointer; 
+	cursor: hand;
+	position: relative;
+	top:7%;
+	vertical-align: middle;
+	margin: auto;
+	width: 90%;
+	height: 90%;
+    border: 0px solid black;
+    border-collapse: collapse;
+    padding: 0px;
+    z-index: 10;
+}
+
+.group{
+	cursor: pointer; 
+	cursor: hand;
+	position: relative;
+	margin:auto;
+  	top: 50%;
+  	max-width:100%;
+    max-height:100%;
+  	transform: translateY(-50%);
+}
+
+.heart{
+	cursor: pointer; 
+	cursor: hand;
+	width: 65px;
+	height: 65px;
+	position: relative;
+	margin: auto;
+	left: 40%;
+}
+
+.heartRow {
+	cursor: pointer; 
+	cursor: hand;
+    margin: auto;
+    width:100%;
+    height:50px;
+    top:15px;
+    
+    /*border-collapse: collapse;*/
+}
+
+
+.textTweet{
+	cursor: pointer; 
+	cursor: hand;
+	font-family: 'Annie Use Your Telescope', cursive;
+	width: 100%;
+	margin: auto;
+	color: rgb(255,255,255);
+	font-size: 25px;
+	text-align: center;
+}
+
+.textName{
+	cursor: pointer; 
+	cursor: hand;
+	font-family: 'Annie Use Your Telescope', cursive;
+	margin: auto;
+	position: relative;
+	color: rgb(255,255,255);
+	width:100%;
+	top:3%;
+	font-size: 18px;
+	text-align: center;
+}
+.textLocation {
+	cursor: pointer; 
+	cursor: hand;
+	font-family: 'Annie Use Your Telescope', cursive;
+	margin:auto;
+	width:100%;
+	color: rgb(255,255,255);
+	position: relative;
+	font-size: 12px;
+    height: 10%;
+    border: 0px solid black;
+    border-collapse: collapse;
+    padding: 0px;
+    text-align: center;
+}
+.menu {
+	position: fixed;
+	top: 35px;
+	width: 210px;
+	height: 21px;
+	color: rgb(234,119,95);
+	font-size: 16px;
+    padding: 0px;
+    text-indent: -9999px;
+}
+
+#logo1 {
+	cursor: pointer; 
+	cursor: hand;
+	position: fixed;
+	width:0px;
+	height:0px;
+	left:43%;
+	bottom: 10px;
+	display: block;
+	text-align: -9999px;
+	z-index: 4;
+	text-indent: -999px;
+}
+
+.heartMenu{
+	cursor: pointer; 
+	cursor: hand;
+	width: 45px;
+	height: 45px;
+	position: relative;
+	display: block;
+	margin: auto;
+}
+
+#logoPop{
+	cursor: pointer; 
+	cursor: hand;
+	background: url(../img/menu_big.png) no-repeat center top;
+	background-size: 100% 100%;
+	position: fixed;
+	display:none;
+	top: 45%;
+	left: 50%;
+	height: 100px;
+	width: 150px;
+	padding:10px;
+	padding-top: 0px;
+	border-radius: 5px;
+	text-align: center;
+	transform: translateY(-50%);
+
+}
+.menuPopType{
+	font-family: 'Annie Use Your Telescope', cursive;
+	margin: auto;
+	display: block;
+	width: 90%;
+	color: rgb(255,255,255);
+	font-size: 20px;
+	position: relative;
+
+}
+
+.email{
+	font-family: 'Annie Use Your Telescope', cursive;
+	margin: auto;
+	display: block;
+	width: 90%;
+	color: rgb(255,255,255);
+	font-size: 20px;
+	position: relative;
+
+}
+
+.menuPopTypeLogo{
+	cursor: pointer; 
+	cursor: hand;
+	font-family: 'Annie Use Your Telescope', cursive;
+	margin: auto;
+	display: block;
+	width: 90%;
+	color: rgb(255,255,255);
+	font-size: 20px;
+	position: relative;
+	padding-top: 10px;
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>LOVEISALLAROUND.US || A GLOBAL VISUALIZATION OF LOVE</title>
+
+	<script src="js/howler.js"></script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope|Pacifico|Reenie+Beanie" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Economica|Poiret+One" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Permanent+Marker|Poiret+One" rel="stylesheet">
+	<link rel="stylesheet" href="css/love.css">
+	<link rel='shortcut icon' href='img/favicon.ico' type='image/x-icon'/ >
+
+</head>
+<body>
+<header>
+</header>
+<div class="main"></div>
+<div class="footer"> 
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="Share the love..." data-url="http://loveisallaround.us" data-via="loveisallaroundus1" data-hashtags="sharethelove" data-show-count="false" size=><img id="twitter" src="img/twitter.png"></a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2Floveisallaround.us&layout=button&mobile_iframe=true&width=59&height=20&appId" width="59" left: "10px" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+	
+	<a href="https://twitter.com/loveisaroundus1" target="_blank"><img id="twitterIcon" src="img/twitterIcon.png"></a>
+	<a href="https://twitter.com/loveisaroundus1" target="_blank"><img id="facebookIcon" src="img/facebook.png"></a>
+	<img class="volume" id="soundOn" src="img/soundOn.png">
+	<img class="volume" id="soundOff" src="img/soundOff.png">
+
+	<div class="menuPop" id="logoPop">
+		<p class= "menuPopTypeLogo">
+		<img class="heartMenu" src ="img/heart.png">
+			<br>
+			I made loveisallaround.us as a way to visualize and share love across the globe. It updates every minute with new moments of love from around the world.
+			<br><br>
+			From love to longing and loss; these small stories are simple reminders of the most important thing in life. Hopefully they will inspire you to share yours with someone you care about.
+			<br><br>
+			spread the love,
+			<br>
+			Sean Dekkers<br>
+			<p class="email"> sdekkers@gmail.com</p>
+		</p>
+</div>
+
+
+
+<img id = "logo1" src="img/logo.png" alt="Love is all around us">
+
+
+<script id="tweet-template" type="text/x-handlebars-template">
+	
+		<div class="tweetTable">
+		  	<div class="group">
+			  	<div class="heartRow"><img class="heart" src ="img/heart.png"></div>
+			  	<div class="textTweet">{{tweet}}</div>
+			   	<div class ="textName">{{name}}</div>
+			   	<div class ="textLocation">{{location}}</div></td>
+		   	</div>
+		</div>
+			
+</script>
+
+
+
+<script src="js/jquery-3.1.1.min.js"></script>
+<script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+<script src="js/handlebars-v4.0.5.js"></script>
+<script src="js/love.js"></script>
+
+
+</body>
+</html>
