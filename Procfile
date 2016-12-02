@@ -1,3 +1,3 @@
-web:    node love.js
-worker: node worker.js
-clock:  node clock.js
+web:    node js/love.js
+worker: node js/worker.js
+clock:  node js/clock.js
