@@ -5,29 +5,7 @@ var express = require('express');
 var app = express();
 var router = express.Router();
 
-// Firebase
 
-// var admin = require('firebase');
-
-//   admin.initializeApp({
-//   credential: admin.credential.cert("./loveisallaroundus-58e78-firebase-adminsdk-vsjoj-ff3b60783c.json"),
-//   databaseURL: "https://loveisallaroundus-58e78.firebaseio.com"
-// });
-
-// var admin = require("firebase");
-
-// var serviceAccount = require("./loveisallaroundus-58e78-firebase-adminsdk-vsjoj-ff3b60783c.json");
-
-// admin.initializeApp({
-//   credential: admin.credential.cert(serviceAccount),
-//   databaseURL: "https://loveisallaroundus-58e78.firebaseio.com"
-// });
-
-// 
-//    consumer_key: process.env.CONSUMER_KEY,
-//    consumer_secret: process.env.CONSUMER_SECRET,
-//    access_token_key: process.env.ACCESS_TOKEN_KEY,
-//    access_token_secret: process.env.ACCESS_TOKEN_SECRET
 
 var firebase = require('firebase');
 var fireApp = firebase.initializeApp({
@@ -37,6 +15,11 @@ var fireApp = firebase.initializeApp({
     storageBucket: process.env.storageBucket,
     messagingSenderId: process.env.messagingSenderId
   });
+
+// var queueRef = new Firebase('https://loveisallaroundus-58e78.firebaseio.com/queue');
+// var options = {endpoint: 'jobs'};
+
+// var cron = new Cron(ref, queueRef, options);
 
 var Twitter = require('twitter');
 var client = new Twitter({

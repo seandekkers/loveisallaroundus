@@ -22,12 +22,21 @@
   "description": "jsd4 class projects",
   "dependencies": {
     "@google/maps": "^0.3.0",
+    "bootstrap": "^3.3.7",
+    "cron": "^1.1.1",
     "dotenv": "^2.0.0",
     "ejs": "^2.5.2",
     "express": "^4.14.0",
     "firebase": "^3.6.1",
+    "firebase-admin": "^4.0.3",
+    "firebase-cron": "^0.1.2",
     "google-maps": "^3.2.1",
-    "twitter": "^1.4.0"
+    "jQuery": "^1.7.4",
+    "jquery": "^3.1.1",
+    "jsdom": "^9.8.3",
+    "request": "^2.79.0",
+    "twitter": "^1.4.0",
+    "xmlhttprequest": "^1.8.0"
   },
   "devDependencies": {}
 }

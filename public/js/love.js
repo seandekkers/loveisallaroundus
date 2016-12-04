@@ -43,7 +43,7 @@ window.addEventListener('load', resizeFunction);
 //----------------------------------------
 
 ///// DATABASE ONCE
-window.addEventListener('load', start);
+// window.addEventListener('load', start);
 
 // ---------OR--------------
 
@@ -137,10 +137,6 @@ var soundSet1 = [],
 //////////////////////END MUSIC////////////////////
 
 
-
-
-// setInterval(start,1000);
-// setTimeout(startDots, 1000);
 var allTweets;
 var allTweetTables;
 var allTweets2;
