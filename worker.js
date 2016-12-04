@@ -307,6 +307,8 @@ function addToDataBase(fireBaseTweet){
 	// clearAllArrays();
 	if(filterCounter == filteredTweets.length){
 		clearAllArrays();
+		filterCounter = 1;
+
 	}
 	
 
