@@ -304,7 +304,7 @@ function addToDataBase(fireBaseTweet){
 	filterCounter++;
 	// console.log(fireBaseTweet);
 	postsRef.push(fireBaseTweet);
-	// clearAllArrays();
+	clearAllArrays();
 	// if(filterCounter == filteredTweets.length){
 	// 	clearAllArrays();
 	// }
