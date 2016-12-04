@@ -304,10 +304,10 @@ function addToDataBase(fireBaseTweet){
 	filterCounter++;
 	// console.log(fireBaseTweet);
 	postsRef.push(fireBaseTweet);
-	clearAllArrays();
-	// if(filterCounter == filteredTweets.length){
-	// 	clearAllArrays();
-	// }
+	// clearAllArrays();
+	if(filterCounter == filteredTweets.length){
+		clearAllArrays();
+	}
 	
 
 	
