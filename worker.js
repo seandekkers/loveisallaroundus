@@ -25,9 +25,18 @@ var dotCounter = 0;
 var intervalCounter=0;
 
 var CronJob = require('cron').CronJob;
+
+
 new CronJob({
   cronTime: "15 * * * * *",//15 seconds after every minute
   onTick: manageDataBase,
+  start: true,
+  timeZone: "America/Los_Angeles"
+});
+
+new CronJob({
+  cronTime: "1 * * * * *",//1 second after every minute
+  onTick: buildTweet,
   start: true,
   timeZone: "America/Los_Angeles"
 });
@@ -43,7 +52,7 @@ var ref = db.ref();
 var postsRef = ref.child("/");
 
 
-manageDataBase();
+// manageDataBase();
 
 	
 function manageDataBase(){
@@ -57,11 +66,9 @@ function manageDataBase(){
 			console.log('DELETE EXTRA TWEETS');
 			extraTweetAmount = fireBaseCount - max;
 			console.log("EXTRA TWEET AMOUNT: " + extraTweetAmount);
-
 			removeTweets(); 
 		} else{
-			console.log('BUILD TWEET');
-			buildTweet();
+			console.log('NO TWEETS TO DELETE');
 		}
 
  	});
@@ -76,8 +83,6 @@ var extra = admin.database().ref("/");
 }
 
 function removeTweets() {
-
-
 	console.log("REMOVING: " + extraTweetAmount + " TWEETS");
 	for(var i = 0; i<= extraTweetAmount; i++){
 			var key = removeId[i];
@@ -86,11 +91,12 @@ function removeTweets() {
 				remove.remove()
 			});
 		}
-	console.log('BUILD TWEET');
-	buildTweet();
+	
+	
 }
 
 function buildTweet(){
+	console.log('START GET TWEETS');
 	console.log('start: ' + counter);
 
 	
