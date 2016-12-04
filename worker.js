@@ -59,7 +59,7 @@ function manageDataBase(){
 	console.log('CALL MANAGER');
 	postsRef.once('value', function(snapshot){
 		var fireBaseCount = snapshot.numChildren();
-		console.log('TWEETS IN FIREBASE' + fireBaseCount);
+		console.log('TWEETS IN FIREBASE: ' + fireBaseCount);
 
 		
 		if(fireBaseCount >= max){
@@ -123,7 +123,7 @@ function buildTweet(){
 
 	//Call Twitter
 
-var twitterUrl = "http://loveisallaroundus.herokuapp.com/tweet/" + tweetSearch;
+var twitterUrl = "http://loveisallaroundus.herokuapp.com/tweets/" + tweetSearch;
  
 request.get(twitterUrl, callTwitter);
 
