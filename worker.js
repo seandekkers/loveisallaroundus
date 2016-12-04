@@ -28,15 +28,15 @@ var CronJob = require('cron').CronJob;
 
 
 new CronJob({
-  cronTime: "15 * * * * *",//15 seconds after every minute
+  cronTime: "30 * * * * *",//15 seconds after every minute
   onTick: manageDataBase,
   start: true,
   timeZone: "America/Los_Angeles"
 });
 
 new CronJob({
-  cronTime: "1 * * * * *",//1 second after every minute
-  onTick: buildTweet,
+  cronTime: "1,30 * * * * *",//1 second after every minute
+  onTick: clearAllArrays,
   start: true,
   timeZone: "America/Los_Angeles"
 });
@@ -93,6 +93,21 @@ function removeTweets() {
 		}
 	
 	
+}
+
+
+
+
+function clearAllArrays(){
+	// CLEAR ALL ARRAYS
+	console.log('CLEAR ALL ARRAYS');
+	counter = 0;
+	twitterData = [];
+	newTwitterData = [];
+	filteredTweets = [];
+	tweetLibrary = [];
+	// removeFromDataBase();
+	buildTweet();
 }
 
 function buildTweet(){
@@ -302,33 +317,11 @@ function addToDataBase(fireBaseTweet){
 	
 	console.log('ADD TO FIREBASE');
 	filterCounter++;
-	// console.log(fireBaseTweet);
-	postsRef.push(fireBaseTweet);
-	// clearAllArrays();
-	if(filterCounter == filteredTweets.length){
-		clearAllArrays();
-		filterCounter = 1;
-
-	}
-	
-
-	
-
 	// ADD TWEET TO FIREBASE
-	// ref.push(fireBaseTweet);
-}
-function clearAllArrays(){
-	// CLEAR ALL ARRAYS
-	console.log('CLEAR ALL ARRAYS');
-	counter = 0;
-	twitterData = [];
-	newTwitterData = [];
-	filteredTweets = [];
-	tweetLibrary = [];
-	// removeFromDataBase();
-
+	postsRef.push(fireBaseTweet);
 
 }
+
 
 
 
