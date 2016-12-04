@@ -24,6 +24,13 @@ var counter = 0;
 var dotCounter = 0;
 var intervalCounter=0;
 
+var CronJob = require('cron').CronJob;
+new CronJob({
+  cronTime: "15 * * * * *",//15 seconds after every minute
+  onTick: manageDataBase,
+  start: true,
+  timeZone: "America/Los_Angeles"
+});
 
 
 admin.initializeApp({
