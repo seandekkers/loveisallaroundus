@@ -101,8 +101,8 @@ function removeTweets() {
 					remove.remove()
 				});
 
+		}
 	}
-	
 	
 }
 
