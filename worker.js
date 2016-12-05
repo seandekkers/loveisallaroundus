@@ -108,7 +108,7 @@ function removeTweets() {
 	
 	removeId = [];
 	extraTweetAmount = 0;
-	console.log('RESTET REMOVE ID: ' + removeId.length + ' & EXTRA TWEET AMOUNT: ' + extraTweetAmount);
+	console.log('RESET REMOVE ID: ' + removeId.length + ' & EXTRA TWEET AMOUNT: ' + extraTweetAmount);
 
 	
 }
