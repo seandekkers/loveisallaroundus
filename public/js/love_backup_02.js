@@ -37,7 +37,7 @@ var tweetsJSON = '';
 var jsonGlobal;
 
 var ref = new Firebase("https://loveisallaroundus-58e78.firebaseio.com/")
-ref.on('value', updateApp);
+ref.once('value', updateApp);
 
 function updateApp(snapshot) {
 
@@ -66,9 +66,6 @@ window.addEventListener('load', resizeFunction);
 
 ////START PLAYING DOTS
 window.addEventListener('load', startDots);
-
-//----------------------------------------
-
 
 //RESIZE TWEETS ON CLICK
 window.addEventListener('click', resizeTweet);
