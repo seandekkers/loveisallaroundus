@@ -37,7 +37,7 @@ var tweetsJSON = '';
 var jsonGlobal;
 
 var ref = new Firebase("https://loveisallaroundus-58e78.firebaseio.com/")
-ref.on('value', updateApp);
+ref.once('value', updateApp);
 
 function updateApp(snapshot) {
 
