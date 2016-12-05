@@ -74,7 +74,7 @@ function manageDataBase(){
  	});
 	
 var extra = admin.database().ref("/");
-	extra.limitToFirst(15).on("child_added", function(snapshot) {
+	extra.limitToFirst(50).on("child_added", function(snapshot) {
 		// console.log('TWEETS IN TEST1' + snapshot.numChildren());
 		// console.log(snapshot.key);
 		var id = snapshot.key;
@@ -304,7 +304,7 @@ function coordToValue(lat, lng ){
 				filterTweets();	
 			}
 		} else {
-			
+
 			if ( counter == tweetLibrary.length){
 				//SEND LIBRARY TO FILTER
 				filterTweets();	
