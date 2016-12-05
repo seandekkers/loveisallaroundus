@@ -57,12 +57,14 @@ var postsRef = ref.child("/");
 	
 function manageDataBase(){
 	console.log('CALL MANAGER');
+	
 	postsRef.once('value', function(snapshot){
+		
 		var fireBaseCount = snapshot.numChildren();
 		console.log('TWEETS IN FIREBASE: ' + fireBaseCount);
 
 		
-		if(fireBaseCount >= max){
+		if(fireBaseCount > max){
 			console.log('DELETE EXTRA TWEETS');
 			extraTweetAmount = fireBaseCount - max;
 			console.log("EXTRA TWEET AMOUNT: " + extraTweetAmount);
@@ -73,9 +75,9 @@ function manageDataBase(){
 
  	});
 	
-var extra = admin.database().ref("/");
+	var extra = admin.database().ref("/");
 	extra.limitToFirst(50).on("child_added", function(snapshot) {
-		// console.log('TWEETS IN TEST1' + snapshot.numChildren());
+		// console.log('TWEETS IN REMOVE ARRAY: ' + snapshot.numChildren());
 		// console.log(snapshot.key);
 		var id = snapshot.key;
 		removeId.push(id);
@@ -83,13 +85,13 @@ var extra = admin.database().ref("/");
 }
 
 function removeTweets() {
-	if(extraTweetAmount <=50){
+	if(extraTweetAmount <= 49){
 		console.log("REMOVING: " + extraTweetAmount + " TWEETS");
 		for(var i = 0; i<= extraTweetAmount; i++){
 				var key = removeId[i];
 				var remove = ref.child(key);
 				remove.on('value', function(snapshot){
-					remove.remove()
+					remove.remove();
 				});
 			}
 	} else {
@@ -98,7 +100,7 @@ function removeTweets() {
 				var key = removeId[i];
 				var remove = ref.child(key);
 				remove.on('value', function(snapshot){
-					remove.remove()
+					remove.remove();
 				});
 
 		}
