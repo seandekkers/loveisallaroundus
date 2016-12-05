@@ -281,10 +281,37 @@ function coordToValue(lat, lng ){
 		console.log(counter + ' : COUNTER: ' + ' == TWEET LIBRARY LENGTH: ' + tweetLibrary.length);
 		// debugger
 		// console.log('COUNTER: '+ counter +' ' + 'LIBRARY LENGTH: ' + tweetLibrary.length);
-		if ( counter == tweetLibrary.length-1){
-			//SEND LIBRARY TO FILTER
-			filterTweets();	
+		
+		if ( tweetLibrary.length >= 10){
+
+			if ( counter == tweetLibrary.length-2){
+				//SEND LIBRARY TO FILTER
+				console.log('>10');
+				filterTweets();	
+			}
+		} else if (tweetLibrary.length >= 6 && tweetLibrary.length <= 9 ){
+
+			if ( counter == tweetLibrary.length-1){
+				//SEND LIBRARY TO FILTER
+				console.log('>7<9');
+				filterTweets();	
+			}
+		} else if ( tweetLibrary.length >= 5){
+			console.log('<5');
+
+			if ( counter == tweetLibrary.length){
+				//SEND LIBRARY TO FILTER
+				filterTweets();	
+			}
+		} else {
+			
+			if ( counter == tweetLibrary.length){
+				//SEND LIBRARY TO FILTER
+				filterTweets();	
+			}
+
 		}
+		
 }
 
 var tweetDatabase = {
