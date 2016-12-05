@@ -83,14 +83,25 @@ var extra = admin.database().ref("/");
 }
 
 function removeTweets() {
-	console.log("REMOVING: " + extraTweetAmount + " TWEETS");
-	for(var i = 0; i<= extraTweetAmount; i++){
-			var key = removeId[i];
-			var remove = ref.child(key);
-			remove.on('value', function(snapshot){
-				remove.remove()
-			});
-		}
+	if(extraTweetAmount <=50){
+		console.log("REMOVING: " + extraTweetAmount + " TWEETS");
+		for(var i = 0; i<= extraTweetAmount; i++){
+				var key = removeId[i];
+				var remove = ref.child(key);
+				remove.on('value', function(snapshot){
+					remove.remove()
+				});
+			}
+	} else {
+		console.log("REMOVING: " + 50 + " TWEETS");
+		for(var i = 0; i<= 49; i++){
+				var key = removeId[i];
+				var remove = ref.child(key);
+				remove.on('value', function(snapshot){
+					remove.remove()
+				});
+
+	}
 	
 	
 }
