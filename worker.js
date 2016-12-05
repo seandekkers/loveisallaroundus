@@ -28,14 +28,14 @@ var CronJob = require('cron').CronJob;
 
 
 new CronJob({
-  cronTime: "30 */2 * * * *",//15 seconds after every minute
+  cronTime: "30 */2 * * * *",//30 seconds every other minute
   onTick: manageDataBase,
   start: true,
   timeZone: "America/Los_Angeles"
 });
 
 new CronJob({
-  cronTime: "1 */2 * * * *",//1 second after every minute
+  cronTime: "1 */2 * * * *",//1 second after every other minute
   onTick: clearAllArrays,
   start: true,
   timeZone: "America/Los_Angeles"
@@ -78,14 +78,18 @@ function manageDataBase(){
 	var extra = admin.database().ref("/");
 	extra.limitToFirst(50).on("child_added", function(snapshot) {
 		// console.log('TWEETS IN REMOVE ARRAY: ' + snapshot.numChildren());
-		// console.log(snapshot.key);
+		console.log(snapshot.key);
 		var id = snapshot.key;
 		removeId.push(id);
 	});
 }
 
 function removeTweets() {
-	if(extraTweetAmount <= 49){
+
+	if( extraTweetAmount == 0){
+		console.log('NO EXTRA TWEETS / DO NOTHING');
+	}else if(extraTweetAmount > 0 && extraTweetAmount <= 49 ){
+		
 		console.log("REMOVING: " + extraTweetAmount + " TWEETS");
 		for(var i = 0; i<= extraTweetAmount; i++){
 				var key = removeId[i];
