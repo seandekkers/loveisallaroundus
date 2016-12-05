@@ -78,7 +78,7 @@ function manageDataBase(){
 	var extra = admin.database().ref("/");
 	extra.limitToFirst(50).on("child_added", function(snapshot) {
 		// console.log('TWEETS IN REMOVE ARRAY: ' + snapshot.numChildren());
-		console.log(snapshot.key);
+		// console.log(snapshot.key);
 		var id = snapshot.key;
 		removeId.push(id);
 	});
