@@ -54,6 +54,7 @@ var postsRef = ref.child("/");
 
 // manageDataBase();
 
+var deleteIndex = 0;
 	
 function manageDataBase(){
 	console.log('CALL MANAGER');
@@ -79,8 +80,15 @@ function manageDataBase(){
 	extra.limitToFirst(50).on("child_added", function(snapshot) {
 		// console.log('TWEETS IN REMOVE ARRAY: ' + snapshot.numChildren());
 		// console.log(snapshot.key);
+		
 		var id = snapshot.key;
+		//ADD TO TOP
 		removeId.push(id);
+		//REMOVE FROM BOTTOM
+		if(removeId >= 51){
+			removeId.splice(0,1);
+			console.log(removeId.length);
+		}
 	});
 }
 
@@ -109,7 +117,7 @@ function removeTweets() {
 
 		}
 	}
-	
+	removeId.splice(0,50);
 	removeId = [];
 	extraTweetAmount = 0;
 	console.log('RESET REMOVE ID: ' + removeId.length + ' & EXTRA TWEET AMOUNT: ' + extraTweetAmount);
@@ -368,6 +376,10 @@ function addToDataBase(fireBaseTweet){
 	filterCounter++;
 	// ADD TWEET TO FIREBASE
 	postsRef.push(fireBaseTweet);
+
+	removeId = [];
+	console.log('CLEAR DELETE QUEUE: ' + removeId.length);
+	
 
 }
 
