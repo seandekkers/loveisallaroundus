@@ -28,14 +28,14 @@ var CronJob = require('cron').CronJob;
 
 
 new CronJob({
-  cronTime: "30 */2 * * * *",//30 seconds every other minute
+  cronTime: "30 */4 * * * *",//30 seconds every other minute
   onTick: manageDataBase,
   start: true,
   timeZone: "America/Los_Angeles"
 });
 
 new CronJob({
-  cronTime: "1 */2 * * * *",//1 second after every other minute
+  cronTime: "1 */4 * * * *",//1 second after every other minute
   onTick: clearAllArrays,
   start: true,
   timeZone: "America/Los_Angeles"
