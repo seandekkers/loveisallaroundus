@@ -230,13 +230,26 @@ function resizeTweet(element){
 			var singleTweet2 = children[0];
 			singleTweet2.style.width = width / 5 + 'px';
 			singleTweet2.style.height = width / 5 + 'px';
-			singleTweet2.style.left = (-1* ((width / 5.2) / 2)) + 'px';
+			singleTweet2.style.left = (-1* ((width / 5.15) / 2)) + 'px';
 			singleTweet2.style.top = (-1 * ((width / 24) / .2)) + 'px';
-		} else {
+		} else if (children[0].className == "tweet"){
 			var singleTweet = children[0];
 			singleTweet.style.width = width / 5 + 'px';
 			singleTweet.style.height = width / 5 + 'px';
-			singleTweet.style.left = (-1* ((width / 5) / 2)) + 'px';
+			singleTweet.style.left = (-1* ((width / 5.25) / 2)) + 'px';
+		} else if (children[0].className == "tweet3"){
+			//HAWAII
+			var singleTweet = children[0];
+			singleTweet.style.width = width / 5 + 'px';
+			singleTweet.style.height = width / 5 + 'px';
+			singleTweet.style.left = (1 * ((width / 200) / 1)) + 'px';
+		} else if (children[0].className == "tweet4"){
+			//NZ
+			var singleTweet2 = children[0];
+			singleTweet2.style.width = width / 5 + 'px';
+			singleTweet2.style.height = width / 5 + 'px';
+			singleTweet2.style.left = (-1* ((width / 5.2) / 1)) + 'px';
+			singleTweet2.style.top = (-1 * ((width / 24) / .2)) + 'px';
 		}
 
 		
@@ -274,6 +287,8 @@ function resizeTweet(element){
 function resizeTweets(){
 //GRAB ALL ELEMENTS FOR RESIZE
 	width = document.body.clientWidth;
+	allTweets4 = document.querySelectorAll('.tweet4');
+	allTweets3 = document.querySelectorAll('.tweet3');
 	allTweets2 = document.querySelectorAll('.tweet2');
 	allTweets = document.querySelectorAll('.tweet');
 	allTweetTables = document.querySelectorAll(".tweetTable");
@@ -290,16 +305,35 @@ function resizeTweets(){
 	for(var i = 0; i < allTweets.length; i++){
 		allTweets[i].style.width = width / 5 + 'px';
 		allTweets[i].style.height = width / 5 + 'px';
-		allTweets[i].style.left = (-1* ((width / 5) / 2)) + 'px';
+		allTweets[i].style.left = (-1* ((width / 5.25) / 2)) + 'px';
 	}
 
 	for(var i = 0; i < allTweets2.length; i++){
 		allTweets2[i].style.width = width / 5 + 'px';
 		allTweets2[i].style.height = width / 5 + 'px';
-		allTweets2[i].style.left = (-1* ((width / 5.2) / 2)) + 'px';
+		allTweets2[i].style.left = (-1* ((width / 5.15) / 2)) + 'px';
 		allTweets2[i].style.top = (-1 * ((width / 24) / .2)) + 'px';
 		//VERTICALLY CENTER TWEET2'S
 		var group = allTweets2[i].childNodes;
+		group[1].style.top = 0;
+	}
+	for(var i = 0; i < allTweets3.length; i++){
+		allTweets3[i].style.width = width / 5 + 'px';
+		allTweets3[i].style.height = width / 5 + 'px';
+		allTweets3[i].style.left = (1 * ((width / 200) / 1)) + 'px';
+		// allTweets3[i].style.top = (-1 * ((width / 24) / .2)) + 'px';
+		//VERTICALLY CENTER TWEET2'S
+		var group = allTweets3[i].childNodes;
+		group[1].style.top = 0;
+	}
+
+	for(var i = 0; i < allTweets4.length; i++){
+		allTweets4[i].style.width = width / 5 + 'px';
+		allTweets4[i].style.height = width / 5 + 'px';
+		allTweets4[i].style.left = (-1* ((width / 5.2) / 1)) + 'px';
+		allTweets4[i].style.top = (-1 * ((width / 24) / .2)) + 'px';
+		//VERTICALLY CENTER TWEET2'S
+		var group = allTweets4[i].childNodes;
 		group[1].style.top = 0;
 	}
 
@@ -605,8 +639,14 @@ function createDot(){
 		createDotImg.appendChild(createTweet);
 		
 
-		if (tweet.x < 50 && tweet.y < 50){
+		if (tweet.x > 10 && tweet.x < 50 && tweet.y < 50){
 			createTweet.className = "tweet";
+			createTweet.style.top = 18 + "px";
+			createTweet.style.left = -196 + "px";
+
+		} else if (tweet.x < 10 && tweet.y < 50){
+			// console.log('HAWAII');
+			createTweet.className = "tweet3";
 			createTweet.style.top = 18 + "px";
 			createTweet.style.left = -196 + "px";
 
@@ -616,7 +656,7 @@ function createDot(){
 			createTweet.style.top = -410 + "px";
 			createTweet.style.left = -196 + "px";
 
-		} else if (tweet.x > 50 && tweet.y > 50){
+		} else if (tweet.x > 50 && tweet.x < 86 && tweet.y > 50){
 			// console.log('lower right');
 			createTweet.className = "tweet2";
 			createTweet.style.top = -410 + "px";
@@ -626,6 +666,12 @@ function createDot(){
 			// console.log('upper right');
 			createTweet.className = "tweet";
 			createTweet.style.top = 18 + "px";
+			createTweet.style.left = -196 + "px";
+
+		} else if (tweet.x > 86 && tweet.y > 50){
+			// console.log('NZ & AUS');
+			createTweet.className = "tweet4";
+			createTweet.style.top = -410 + "px";
 			createTweet.style.left = -196 + "px";
 
 		}
@@ -748,7 +794,7 @@ function volumeFunction(event){
 
 
 function toggleTweet(event){
-	// console.log(event.target.className);
+	console.log(event.target.className);
 	var $target = $(event.target);
 	
 	if(event.target.className == "dot1" || event.target.className == "dot2" || event.target.className == "dot3" || event.target.className == "dot4" || event.target.className == "dot5"){
@@ -762,16 +808,24 @@ function toggleTweet(event){
 		parent.toggle();
 		var parent2 = $( event.target ).closest( ".tweet2" );
 		parent2.toggle();
+		var parent3 = $( event.target ).closest( ".tweet3" );
+		parent3.toggle();
+		var parent4 = $( event.target ).closest( ".tweet4" );
+		parent4.toggle();
 
 	}
-	if(event.target.className == "tweet" || event.target.className == "tweet2" || event.target.className == "tweetRow" || event.target.className == "nameRow" || event.target.className == "heartRow" || event.target.className == "tweetTable" ){
+	if(event.target.className == "tweet" || event.target.className == "tweet2" || event.target.className == "tweet3" || event.target.className == "tweet4" || event.target.className == "tweetRow" || event.target.className == "nameRow" || event.target.className == "heartRow" || event.target.className == "tweetTable" ){
 		// var parent = $( event.target ).closest( ".tweet" );
 		// console.log(parent);
 		// console.log('TABLE');
-		var tweetTable2 = $( event.target ).closest( ".tweet2" );
 		var tweetTable = $( event.target ).closest( ".tweet" );
-		tweetTable2.toggle();
+		var tweetTable2 = $( event.target ).closest( ".tweet2" );
+		var tweetTable3 = $( event.target ).closest( ".tweet3" );
+		var tweetTable4 = $( event.target ).closest( ".tweet4" );
 		tweetTable.toggle();
+		tweetTable2.toggle();
+		tweetTable3.toggle();
+		tweetTable4.toggle();
 
 
 	}

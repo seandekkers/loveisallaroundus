@@ -176,7 +176,7 @@ a:link {
 	border: 0px;
 	margin:auto;
 	vertical-align: middle;
-	border-radius: 5%;
+	border-radius: 0%;
 	margin: 0;
 }
 .tweet2{
@@ -192,7 +192,39 @@ a:link {
 	border: 0px;
 	margin:auto;
 	vertical-align: middle;
-	border-radius: 5%;
+	border-radius: 0%;
+	margin: 0;
+}
+.tweet3{
+	cursor: pointer; 
+	cursor: hand;
+	background: url(../img/tweet3.png) no-repeat center top;
+	background-size: 100% 100%;
+	position: relative;
+	width: 400px;
+	height: 400px;
+	z-index: 5;
+	display: none;
+	border: 0px;
+	margin:auto;
+	vertical-align: middle;
+	border-radius: 0%;
+	margin: 0;
+}
+.tweet4{
+	cursor: pointer; 
+	cursor: hand;
+	background: url(../img/tweet4.png) no-repeat center top;
+	background-size: 100% 100%;
+	position: relative;
+	width: 400px;
+	height: 400px;
+	z-index: 5;
+	display: none;
+	border: 0px;
+	margin:auto;
+	vertical-align: middle;
+	border-radius: 0%;
 	margin: 0;
 }
 
