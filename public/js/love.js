@@ -106,7 +106,7 @@ var soundSet1 = [],
     //         }
     //     }
 // load soundSet1 and soundSet2
-        for (var i = 1; i <= 36; i++) {
+        for (var i = 1; i <= 32; i++) {
             
             if (i > 9) {
                 fn = 'c0' + i;
@@ -141,7 +141,7 @@ var soundSet1 = [],
 
   function makeSound(){
 
-	randomSoundSet1 = Math.round((Math.random()*35));
+	randomSoundSet1 = Math.round((Math.random()*30));
 	randomSoundSet2 = Math.round((Math.random()*2));
 	// console.log('SOUND TRIGGER' + randomSoundSet1 + ", " + randomSoundSet2 + ", " + randomSoundSet3);
 	// if (soundCounter % 2 == 0){
