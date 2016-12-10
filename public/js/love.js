@@ -106,7 +106,7 @@ var soundSet1 = [],
     //         }
     //     }
 // load soundSet1 and soundSet2
-        for (var i = 1; i <= 24; i++) {
+        for (var i = 1; i <= 36; i++) {
             
             if (i > 9) {
                 fn = 'c0' + i;
@@ -121,30 +121,42 @@ var soundSet1 = [],
                 // sound_load(),
             });
             
-            var soundSet2Clip = new Howl({
-                src : ['sounds/set2/' + fn + '.mp3'],
-                volume : 0.2,
-                // onload : console.log('loaded'),
-                // sound_load(),
-            });
 
             soundSet1.push(soundSet1Clip);
-            soundSet2.push(soundSet2Clip);
 
             	
         }
 
-        // load soundSet3 
-        for (var i = 1; i <= 3; i++) {
-        	var soundSet3clip = new Howl({
-                src : ['sounds/set3/swell' + i + '.mp3'],
-                volume : 1,
+        // load soundSet2 
+        // for (var i = 1; i <= 3; i++) {
+        // 	var soundSet2clip = new Howl({
+        //         src : ['sounds/set2/swell' + i + '.mp3'],
+        //         volume : .0,
                 // onload : console.log('loaded'),
                 // sound_load(),
-            });
+            // });
             
-            soundSet3.push(soundSet3clip);
-        }
+            // soundSet2.push(soundSet2clip);
+        // }
+
+  function makeSound(){
+
+	randomSoundSet1 = Math.round((Math.random()*35));
+	randomSoundSet2 = Math.round((Math.random()*2));
+	// console.log('SOUND TRIGGER' + randomSoundSet1 + ", " + randomSoundSet2 + ", " + randomSoundSet3);
+	// if (soundCounter % 2 == 0){
+	// 	console.log("SWELL SOUND:" + randomSoundSet2);
+	// 	// console.log("instrument 3 " + randomSoundSet3);
+	// 	soundSet1[randomSoundSet2].play();
+	// }
+
+	soundSet1[randomSoundSet1].play();
+	// console.log("SOUND:" + randomSoundSet1);
+	
+	soundCounter++;
+	
+
+}
 
 //////////////////////END MUSIC////////////////////
 
@@ -165,13 +177,7 @@ function resizeFunction(){
 	
 	logo.style.width = width / 8 + 'px';
 	logo.style.height = width / 16 + 'px';
-	// lovelinks1.style.width = width / 7 + 'px';
-	// lovelinks1.style.height = width / 14 + 'px';
-	// lovelinks1.style.left = width / 3.8 + 'px';
-	// lovelinks2.style.width = width / 7 + 'px';
-	// lovelinks2.style.height = width / 14 + 'px';
-	// lovelinks2.style.right = width / 3.5 + 'px';
-
+	
 	twitterIcon.style.width = width / 60 + 'px';
 	twitterIcon.style.height = width / 60 + 'px';
 	twitterIcon.style.right = width / 25 + 'px';
@@ -190,20 +196,9 @@ function resizeFunction(){
 	soundOffIcon.style.height = width / 60 + 'px';
 	soundOffIcon.style.right = width / 75 + 'px';
 
-	// popDown1.style.width = width / 3.5 + 'px';
-	// popDown1.style.height = width / 8 + 'px';
-	// popDown1.style.left = width / 19 + 'px';
-	// popDown1.style.bottom = width / 20 + 'px';
-	// popDown2.style.width = width / 3.5 + 'px';
-	// popDown2.style.height = width / 8 + 'px';
-	// popDown2.style.right = width / 15 + 'px';
-	// popDown2.style.bottom = width / 20 + 'px';
-
 	logoPop.style.width = width / 3.0 + 'px';
 	logoPop.style.height = width / 2.7 + 'px';
 	logoPop.style.left = width / 3.1 + 'px';
-	// logoPop.style.bottom = 50 + '%';
-	// logoPop.style.bottom = width / 12 + 'px';
 
 	menuPopTypeLogo.style.fontSize = width / 60 + 'px';
 	menuPopTypeLogo.style.paddingTop = width / 70 + 'px';
@@ -367,209 +362,13 @@ function resizeTweets(){
 }
 
 	
-function start(){
-	console.log('start');
-
-	
-	tweetObj = {
-		    place: "",
-		    lat: "",
-		    lng:"",
-		    tweet: "",
-		    location: "",
-		    name: "",
-		    id: "",
-		    sn: "",
-		    x: "",
-		    y: "",
-			};
-			
-	$.getJSON('/tweets/'+tweetSearch, callTwitter);
-
-	var randomInterval = Math.random() * 1000;
-}
-
-function callTwitter(json){
-	
-	
-	json.statuses.forEach( function(originalTweet){
-		// console.log(x.user);
-		var location = originalTweet.user.location;
-		var regExp = /[1-4]/g;
-
-		if (location != null && location.length >= 2 && location.length <= 20 && location[0] !=" "){
-			twitterData.push(originalTweet);
-		}
-	});
-
-	rawTweetCount = twitterData.length;
-	controller();
-	
-}
-function controller(){
-
-
-		twitterData.forEach(function(tweet){
-		
-			tweetObj = {
-				place: "",
-				lat: "",
-				lng:"",
-				img:tweet.user.profile_background_image_url,
-				tweet: tweet.text,
-				location: tweet.user.location,
-				name: tweet.user.name,
-				id: tweet.user.id,
-				sn: tweet.user.screen_name,
-				x: "",
-				y: "",
-			}
-			tweetLibrary.push(tweetObj);
-			// DEBUGGER TO GET RAW DATA
-			// debugger
-		})
-		//REMOVE RAW TWEETS
-		
-		twitterData.splice(0,twitterData.length);
-
-		tweetLibrary.forEach(function(tweet){
-				var location = tweet.location;
-				
-
-///////////////////FAKE CITY FOR TEST /////////////////////
-
-				sendCity(location);
-				// sendFakeCity(location);
-			});
-
-	}
-
-
-
-function sendCity(location){
-	// SEND LOCATION STRING TO GEOCODER
-	$.getJSON('/geocoder/'+location, getCoordinates);
-
-}
-	
-
-function getCoordinates(json){
-	var lat = 0;
-	var lng = 0;
-
-	var status = json.json.status;
-
-	//IF CALL STATUS IS OKAY
-	if( status == "OK"){
-			place = json.json.results[0].address_components[0].short_name;
-			lat = json.json.results[0].geometry.location.lat;
-			lng = json.json.results[0].geometry.location.lng;
-			
-			tweetLibrary[counter].location = place;
-			tweetLibrary[counter].lat = lat;
-			tweetLibrary[counter].lng  = lng;
-			
-	} else if( status == "ZERO_RESULTS"){
-		// DO NOTHING
-
-	} 	
-
-
-	coordToValue(lat, lng);
-}
-
-
-function coordToValue(lat, lng ){
-
-		if ( lat != 0 ){
-
-
-		// CONVERT COORDINATES TO X,Y VALUE
-		
-		var xValue = 0;
-		var yValue = 0;
-
-		xValue = ((180 + lng) / 360)*100;
-
-		if(lat >= 0) { 
-			yValue = ((90 - lat) / 180) * 100; 
-		} else {
-			yValue = ((90 + (lat * -1)) / 180) * 100;
-		}
-		tweetLibrary[counter].x = xValue;
-		tweetLibrary[counter].y = yValue;
-
-		}
-
-	counter++;
-
-		// debugger
-		// console.log('COUNTER: '+ counter +' ' + 'LIBRARY LENGTH: ' + tweetLibrary.length);
-		if ( counter == tweetLibrary.length){
-			//SEND LIBRARY TO FILTER
-			filterTweets();	
-		}
-}
-
-var tweetDatabase = {
-	tweet:"",
-}
-
-var clearLibrary = 0;
-
-function filterTweets(){
-	
-	//FILTER TWEETS
-	filteredTweets = tweetLibrary.filter(function(tweet){
-		//RETURN ALL TWEETS WITH X AND Y COORDINATES
-		return tweet.x != 0;
-	});
-
-	// ADD FILTERED TWEETS TO DATABASE
-
-	filteredTweets.forEach(function(filteredTweet){
-		tweetDatabase.tweet = filteredTweet;
-		addToDataBase(tweetDatabase);
-	})
-	// EMPTY TWEET LIBRARY
-	clearAllArrays();
-}
-	
-function clearAllArrays(){
-	// CLEAR ALL ARRAYS
-	twitterData = [];
-	newTwitterData = [];
-	filteredTweets = [];
-	tweetLibrary = [];
-
-}
- 
-
-function addToDataBase(fireBaseTweet){
-	
-	// ADD TWEET TO FIREBASE
-	ref.push(fireBaseTweet);
-}
-
-
-
-
-
-
-
-
-
-
-
-//////////////////  END FIREBASE  //////////////////
-
 
 
 
 function startDots(){
-	soundSet3[0].play();
+	// soundSet2[0].play();
 	
-	var interval = Math.random()*1500;
+	var interval = Math.random()*1200;
 	//CREATE DOTS EVERY RANDOM * 3 SECONDS
 	var intervalometer = function(){
 		if ( dotCounter < fireBaseCount ){
@@ -578,7 +377,7 @@ function startDots(){
 
 
 		    clearInterval(interval);
-		    interval = Math.random()*1500;
+		    interval = Math.random()*1200;
 		    interval = setInterval(intervalometer, interval);
 		}
 	}
@@ -707,30 +506,8 @@ function createDot(){
 
 }
 var soundCounter = 0;
-function makeSound(){
-	//GENERATE RANDOM SOUND
 
-	randomSetSelector = Math.round((Math.random()*2));
-	randomSoundSet1 = Math.round((Math.random()*23));
-	randomSoundSet2 = Math.round((Math.random()*23));
-	randomSoundSet3 = Math.round((Math.random()*2));
-	// console.log('SOUND TRIGGER' + randomSoundSet1 + ", " + randomSoundSet2 + ", " + randomSoundSet3);
-	if (soundCounter % 7 == 0){
-		// console.log("instrument 3 " + randomSoundSet3);
-		soundSet3[randomSoundSet3].play();
-	}
 
-	if (randomSetSelector == 1){
-		// console.log("instrument 1 " + randomSoundSet1);
-		soundSet1[randomSoundSet1].play();
-	} else if ( randomSetSelector == 2){
-		// console.log("instrument 2 " + randomSoundSet2);
-		soundSet2[randomSoundSet2].play();
-	} 
-	soundCounter++;
-	
-
-}
 function animateDot(animDot, offset, createDotImg){
 
 	var size = 0;
@@ -794,7 +571,7 @@ function volumeFunction(event){
 
 
 function toggleTweet(event){
-	console.log(event.target.className);
+	// console.log(event.target.className);
 	var $target = $(event.target);
 	
 	if(event.target.className == "dot1" || event.target.className == "dot2" || event.target.className == "dot3" || event.target.className == "dot4" || event.target.className == "dot5"){
