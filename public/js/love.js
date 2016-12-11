@@ -20,8 +20,11 @@ var formSubmit = document.querySelector('.formSubmit');
 var addYours = document.querySelector('.addYours');
 var formType = document.querySelectorAll('.formType');
 var formHeart = document.querySelector('.heartLovePop');
+var personalDotCheck = false;
 
 var helper = document.querySelector('.helper');
+
+
 
 formName.addEventListener("focus", function(){
 	if(formName.value == "Name..."){
@@ -57,13 +60,23 @@ formMessage.addEventListener("blur", function(){
 formSubmit.addEventListener('click', addLove);
 
 footer.addEventListener('click', menuToggle);
+
+
 var addLovePop = document.querySelector('#addPop');
 var $addLovePop = $(addLovePop);
 addYours.addEventListener('click', function(){
-	$addLovePop.toggle();
-	pop.toggle();
+	if(personalDotCheck == false){
+		$addLovePop.toggle();
+		pop.toggle();
+	}
 });
-var personalDotCheck = false;
+var marker = document.querySelector('.marker');
+marker.addEventListener('click', function(){
+	if(personalDotCheck == false){
+		$addLovePop.toggle();
+	}
+});
+
 
 
 // popDown1.addEventListener('click',menuToggle);
@@ -95,16 +108,18 @@ ref.once('value', updateApp);
 
 
 var addLove = {
-		    place: "",
-		    lat: "",
-		    lng:"",
-		    tweet: "",
-		    location: "",
-		    name: "",
-		    id: "",
-		    sn: "",
-		    x: "",
-		    y: "",
+			tweet: {
+				    place: "",
+				    lat: "",
+				    lng:"",
+				    tweet: "",
+				    location: "",
+				    name: "",
+				    id: "",
+				    sn: "",
+				    x: "",
+				    y: "",
+				},
 };
 
 
@@ -118,11 +133,10 @@ function addLove(){
 	
 
 
-	if( name != "Name..." && location != "Location..." && message != "Message..."){
-		console.log('If Statement');
-		addLove.name = name;
-		addLove.tweet = message;
-		addLove.sn = name;
+	if( personalDotCheck == false && name != "Name..." && location != "Location..." && message != "Message..."){
+		addLove.tweet.name = name;
+		addLove.tweet.tweet = message;
+		addLove.tweet.sn = name;
 		// helper.innerHTML = "Thanks for spreading the love!"
 
 		// getLocalLocation();
@@ -137,7 +151,6 @@ function addLove(){
 }
 
 function sendCity(location){
-	console.log('Send City ' + location);
 	// SEND LOCATION STRING TO GEOCODER
 	$.getJSON('/geocoder/'+location, getCoordinates);
 
@@ -150,18 +163,18 @@ function getCoordinates(json){
 	var lng = 0;
 	var place = "";
 	var status = json.json.status;
-	debugger
 
 	//IF CALL STATUS IS OKAY
 	if( status == "OK"){
 		console.log('Location Valid')
+			helper.innerHTML = "Success!"
 			place = json.json.results[0].address_components[0].short_name;
 			lat = json.json.results[0].geometry.location.lat;
 			lng = json.json.results[0].geometry.location.lng;
 			
-			addLove.location = place;
-			addLove.lat = lat;
-			addLove.lng  = lng;
+			addLove.tweet.location = place;
+			addLove.tweet.lat = lat;
+			addLove.tweet.lng  = lng;
 			
 	} else if( status == "ZERO_RESULTS"){
 		console.log('location Not valid');
@@ -203,8 +216,8 @@ function coordToValue(lat, lng ){
 			} else {
 				yValue = ((90 + (lat * -1)) / 180) * 100;
 			}
-			addLove.x = xValue;
-			addLove.y = yValue;
+			addLove.tweet.x = xValue;
+			addLove.tweet.y = yValue;
 			addPersonalDot();
 			// console.log(xValue, yValue);
 
@@ -219,7 +232,7 @@ function addPersonalDot(){
 
 	console.log("Add personal Dot");
 	// console.log('CREATE DOT NUMBER: ' + dotCounter);
-	var tweet = addLove;
+	var tweet = addLove.tweet;
 	var randomDotColor = Math.ceil((Math.random()*5));
 	// console.log('RANDOM DOT COLOR' + randomDotColor);
 
@@ -304,7 +317,7 @@ function addPersonalDot(){
 		//handlebars
 		var tweetTemplate = document.querySelector("#tweet-template");
 		var templateFunction = Handlebars.compile(tweetTemplate.innerHTML);
-		html = templateFunction(addLove);
+		html = templateFunction(addLove.tweet);
 		createTweet.innerHTML = html;
 
 
@@ -498,7 +511,6 @@ function resizeFunction(){
 
 
 
-
 	
 	twitterIcon.style.width = width / 60 + 'px';
 	twitterIcon.style.height = width / 60 + 'px';
@@ -508,7 +520,9 @@ function resizeFunction(){
 	facebookIcon.style.height = width / 65 + 'px';
 	facebookIcon.style.right = width / 15 + 'px';
 
-
+	marker.style.width = width / 30 + 'px';
+	marker.style.height = width / 30 + 'px';
+	marker.style.right = width / 75 + 'px';
 
 	soundOnIcon.style.width = width / 60 + 'px';
 	soundOnIcon.style.height = width / 60 + 'px';
@@ -518,8 +532,8 @@ function resizeFunction(){
 	soundOffIcon.style.height = width / 60 + 'px';
 	soundOffIcon.style.right = width / 75 + 'px';
 
-	logoPop.style.width = width / 3.0 + 'px';
-	logoPop.style.height = width / 2.7 + 'px';
+	logoPop.style.width = width / 3.1 + 'px';
+	logoPop.style.height = width / 2.9 + 'px';
 	logoPop.style.left = width / 3.1 + 'px';
 
 	menuPopTypeLogo.style.fontSize = width / 60 + 'px';

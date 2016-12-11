@@ -162,6 +162,17 @@ a:link {
 	right: 20px;
 }
 
+#addLove{
+	cursor: pointer; 
+	cursor: hand;
+	position: fixed;
+	display: visible;
+	/*visibility: hidden;*/
+	width: 0px;
+	height: 00px;
+	top:2.5%;
+	right: 20px;
+}
 
 .tweet{
 	cursor: pointer; 
@@ -371,7 +382,7 @@ a:link {
 	position: fixed;
 	display:none;
 	top: 50%;
-	left: 38%;
+	left: 35%;
 	height: 400px;
 	width: 350px;
 	padding-top: 0px;
