@@ -265,6 +265,15 @@ a:link {
 	margin: auto;
 	left: 40%;
 }
+.heartLovePop{
+	cursor: pointer; 
+	cursor: hand;
+	width: 65px;
+	height: 65px;
+	position: relative;
+	margin: auto;
+	left: 40%;
+}
 
 .heartRow {
 	cursor: pointer; 
@@ -349,6 +358,102 @@ a:link {
 	position: relative;
 	display: block;
 	margin: auto;
+}
+
+#addPop{
+
+	transform: translateY(-50%);
+	cursor: pointer; 
+	cursor: hand;
+	background: url(../img/menu_big.png) no-repeat center top;
+	background-size: 100% 100%;
+	opacity: 75%;
+	position: fixed;
+	display:none;
+	top: 50%;
+	left: 38%;
+	height: 360px;
+	width: 350px;
+	padding-top: 0px;
+	padding:25px;
+	border-radius: 5px;
+	text-align: left;
+	/*transform: translateY(-50%);*/
+
+}
+
+input.formName{
+	width: 50%;
+	height:10%;
+	font-family: 'Annie Use Your Telescope', cursive;
+	font-size: 24px;
+	background-color: rgba(244,113,135,.8);
+	border-radius: 5px;
+	border: 0px;
+	padding-left: 10px;
+	color: rgb(255,255,255);
+}
+input.formLocation{
+	width: 50%;
+	font-family: 'Annie Use Your Telescope', cursive;
+	font-size: 24px;
+	background-color: rgba(244,113,135,.8);
+	border-radius: 5px;
+	border: 0px;
+	padding-left: 10px;
+	color: rgb(255,255,255);
+}
+.formMessage{
+	text-align: left;
+	vertical-align: top;
+	width: 92%;
+	height: 75px;
+	font-family: 'Annie Use Your Telescope', cursive;
+	font-size: 24px;
+	padding-top: 5px;
+	background-color: rgba(244,113,135,.8);
+	border-radius: 5px;
+	border: 0px;
+	padding-left: 10px;
+	color: rgb(255,255,255);
+}
+
+.helper{
+	font-family: 'Annie Use Your Telescope', cursive;
+	font-size: 16px;
+	text-align: center;
+	padding-top: 5px;
+	border: 0px;
+	color: rgb(255,255,255);
+
+}
+.formSubmit{
+	margin: auto;
+	width: 200px;
+	font-family: 'Annie Use Your Telescope', cursive;
+	font-size: 24px;
+	color: rgb(255,255,255);
+	text-align: center;
+	background-color: rgba(255,145,172,.8);
+	display: block;
+	border: 0px;
+	border-radius: 5px;
+}
+
+.formType{
+	font-family: 'Annie Use Your Telescope', cursive;
+	font-size: 24px;
+	color: rgb(255,145,172);
+}
+.formButton{
+	position: absolute;
+	background-color: rgba(255,145,172,.8);
+	border-radius: 5px;
+	padding-top: 50px;
+	right:10%;
+	width: 100px;
+	height: 100px;
+	/*padding: 25px;*/
 }
 
 #logoPop{

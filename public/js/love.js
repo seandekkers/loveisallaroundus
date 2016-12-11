@@ -11,7 +11,37 @@ var facebookIcon = document.querySelector('#facebookIcon');
 var soundOnIcon = document.querySelector('#soundOn');
 var soundOffIcon = document.querySelector('#soundOff');
 var footer = document.querySelector('.footer');
+var formName = document.querySelector('input.formName');
+var formMessage = document.querySelector('.formMessage');
+var formSubmit = document.querySelector('.formSubmit');
+
+formName.addEventListener("focus", function(){
+	if(formName.value == "Name..."){
+		formName.value = "";
+	}
+})
+formMessage.addEventListener("focus", function(){
+	if(formMessage.value == "Message..."){
+		formMessage.value = "";
+	}
+})
+formName.addEventListener("blur", function(){
+	if(formName.value == ""){
+		formName.value = "Name...";
+	}
+});
+formMessage.addEventListener("blur", function(){
+	if(formMessage.value == ""){
+		formMessage.value = "Message...";
+	}
+})
+formSubmit.addEventListener('click', addLove);
 footer.addEventListener('click', menuToggle);
+var addLovePop = document.querySelector('#addPop');
+var $addLovePop = $(addLovePop);
+var personalDotCheck = false;
+
+
 // popDown1.addEventListener('click',menuToggle);
 var createTweet, tweetTable, tds, tableRow, tableRow2, tableRow3, heartRow, heartImg, tweetRow, nameRow, textTweet, textName, textLocation;
 var allTweets, allTweetTables, allTweetTextSize, allHearts, allHeartRows;
@@ -38,6 +68,213 @@ var jsonGlobal;
 
 var ref = new Firebase("https://loveisallaroundus-58e78.firebaseio.com/")
 ref.once('value', updateApp);
+
+
+var addLove = {
+		    place: "",
+		    lat: "",
+		    lng:"",
+		    tweet: "",
+		    location: "",
+		    name: "",
+		    id: "",
+		    sn: "",
+		    x: "",
+		    y: "",
+};
+
+
+
+function addLove(){
+	var name = formName.value;
+	var message = formMessage.value;
+	var helper = document.querySelector('.helper');
+	
+
+
+	if( name != "" && message != "" && name != "Name..." && message != "Message..."){
+		addLove.name = name;
+		addLove.tweet = message;
+		addLove.sn = name;
+		helper.innerHTML = "Thanks for spreading the love!"
+
+		getLocalLocation();
+		// sendCity(location);
+		// console.log('okay');
+	} else {
+
+		helper.innerHTML = "Please include both fields!"
+	}
+
+
+}
+
+function getLocalLocation(){
+	// console.log('Get Location');
+	navigator.geolocation.getCurrentPosition(function(position) {
+		  // console.log('geolocation' + position);
+		  addLove.lat = position.coords.latitude;
+		  addLove.lng = position.coords.longitude;
+		  addLove.location = ""
+		});
+	
+		// console.log("GET LOCAL LOCATION COORDINATES" + addLove.lat, addLove.lng);
+		coordToValue(addLove.lat, addLove.lng);
+}
+
+
+
+function coordToValue(lat, lng ){
+	console.log('Coord to X,Y' + lat);
+	// console.log('COORDINATES TO ARRAY NUMBER: ' + counter);
+		if ( lat != 0 ){
+			// CONVERT COORDINATES TO X,Y VALUE
+			
+			var xValue = 0;
+			var yValue = 0;
+
+			xValue = ((180 + lng) / 360)*100;
+
+			if(lat >= 0) { 
+				yValue = ((90 - lat) / 180) * 100; 
+			} else {
+				yValue = ((90 + (lat * -1)) / 180) * 100;
+			}
+			addLove.x = xValue;
+			addLove.y = yValue;
+			addPersonalDot();
+			// console.log(xValue, yValue);
+
+		}
+}
+
+
+
+
+function addPersonalDot(){
+
+
+	console.log("Add personal Dot");
+	// console.log('CREATE DOT NUMBER: ' + dotCounter);
+	var tweet = addLove;
+	var randomDotColor = Math.ceil((Math.random()*5));
+	// console.log('RANDOM DOT COLOR' + randomDotColor);
+
+	createDotImg = document.createElement('div');
+
+	if(randomDotColor == 1){
+		createDotImg.className = "dot1";
+	} else if (randomDotColor == 2){
+		createDotImg.className = "dot2";
+	} else if (randomDotColor == 3){
+		createDotImg.className = "dot3";
+	} else if (randomDotColor == 4){
+		createDotImg.className = "dot4";
+	} else if (randomDotColor == 5){
+		createDotImg.className = "dot5";
+
+	} 
+		// createDot.className = "dot";
+		createDotImg.id = tweetObj.id;
+
+		
+		dotBody.appendChild(createDotImg);
+		
+		createDotImg.style.top = tweet.y + "%";
+		createDotImg.style.left = tweet.x + "%";
+
+
+	if( tweet.tweet.length > 80){
+		createDotImg.style.height = tweet.tweet.length / 10 + 'px';
+		createDotImg.style.width = tweet.tweet.length / 10 + 'px';
+	}
+	var offset = (tweet.tweet.length / 10) /2;
+		
+
+	
+			// CREATE TWEET
+
+		createTweet = document.createElement('div');
+		createTweet.id = tweetObj.id;
+		createTweet.style.display = "none";
+		createDotImg.appendChild(createTweet);
+		
+
+		if (tweet.x > 10 && tweet.x < 50 && tweet.y < 50){
+			createTweet.className = "tweet";
+			createTweet.style.top = 18 + "px";
+			createTweet.style.left = -196 + "px";
+
+		} else if (tweet.x < 10 && tweet.y < 50){
+			// console.log('HAWAII');
+			createTweet.className = "tweet3";
+			createTweet.style.top = 18 + "px";
+			createTweet.style.left = -196 + "px";
+
+		} else if (tweet.x < 50 && tweet.y > 50){
+			// console.log('lower left');
+			createTweet.className = "tweet2";
+			createTweet.style.top = -410 + "px";
+			createTweet.style.left = -196 + "px";
+
+		} else if (tweet.x > 50 && tweet.x < 86 && tweet.y > 50){
+			// console.log('lower right');
+			createTweet.className = "tweet2";
+			createTweet.style.top = -410 + "px";
+			createTweet.style.left = -196 + "px";
+
+		} else if (tweet.x > 50 && tweet.y < 50){
+			// console.log('upper right');
+			createTweet.className = "tweet";
+			createTweet.style.top = 18 + "px";
+			createTweet.style.left = -196 + "px";
+
+		} else if (tweet.x > 86 && tweet.y > 50){
+			// console.log('NZ & AUS');
+			createTweet.className = "tweet4";
+			createTweet.style.top = -410 + "px";
+			createTweet.style.left = -196 + "px";
+
+		}
+		
+	
+		//handlebars
+		var tweetTemplate = document.querySelector("#tweet-template");
+		var templateFunction = Handlebars.compile(tweetTemplate.innerHTML);
+		html = templateFunction(addLove);
+		createTweet.innerHTML = html;
+
+
+
+		var dot = document.querySelector('.dot');
+		var tweet = document.querySelector('.tweet');
+		// var tweet2 = document.querySelector('.tweet2');
+
+		dotBody.addEventListener('click', toggleTweet);
+		
+		//ANIMATE DOT
+		createAnimDot = document.createElement('div');
+		createAnimDot.className = "animDot";
+		createDotImg.appendChild(createAnimDot);
+
+
+
+		
+		animateDot(createAnimDot,offset,createDotImg);
+		makeSound();
+		personalDotCheck = true;
+		var $addLovePop = $(addLovePop);
+		$addLovePop.toggle();
+	
+		ref.push(addLove);
+
+
+
+
+}
+
+
+
 
 function updateApp(snapshot) {
 
@@ -541,14 +778,31 @@ function menuToggle(event){
 
 	if(event.target.className == "menuPop" ){
 		var tweetMenu = $( event.target ).toggle();
+		// $addLovePop.toggle();
+
 	}
+
 	if(event.target.className == "heartMenu" || event.target.className == "menuPopType" || event.target.className == "menuPopTypeLogo"){
+		
 		var tweetMenu = $( event.target ).closest(".menuPop").toggle();
 
 	}
+	
 	if (event.target.id == "logo1"){
-		var pop = $( logoPop );
-		pop.toggle();
+
+		if(personalDotCheck == false){
+			$addLovePop.toggle();
+
+		} else {
+
+			var pop = $( logoPop );
+			pop.toggle();
+		}
+	}
+	if(event.target.className == "addLove" || event.target.className == "heartLovePop" || event.target.className == "loveForm"){
+		console.log('ADD_LOVE');
+		$addLovePop.toggle();
+
 	} 
 }
 
