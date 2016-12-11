@@ -11,13 +11,24 @@ var facebookIcon = document.querySelector('#facebookIcon');
 var soundOnIcon = document.querySelector('#soundOn');
 var soundOffIcon = document.querySelector('#soundOff');
 var footer = document.querySelector('.footer');
+
 var formName = document.querySelector('input.formName');
+var formLocation = document.querySelector('input.formLocation');
 var formMessage = document.querySelector('.formMessage');
 var formSubmit = document.querySelector('.formSubmit');
+var formType = document.querySelectorAll('.formType');
+var formHeart = document.querySelector('.heartLovePop');
+
+var helper = document.querySelector('.helper');
 
 formName.addEventListener("focus", function(){
 	if(formName.value == "Name..."){
 		formName.value = "";
+	}
+})
+formLocation.addEventListener("focus", function(){
+	if(formLocation.value == "Location..."){
+		formLocation.value = "";
 	}
 })
 formMessage.addEventListener("focus", function(){
@@ -25,9 +36,15 @@ formMessage.addEventListener("focus", function(){
 		formMessage.value = "";
 	}
 })
+
 formName.addEventListener("blur", function(){
 	if(formName.value == ""){
 		formName.value = "Name...";
+	}
+});
+formLocation.addEventListener("blur", function(){
+	if(formLocation.value == ""){
+		formLocation.value = "Location...";
 	}
 });
 formMessage.addEventListener("blur", function(){
@@ -88,25 +105,66 @@ var addLove = {
 function addLove(){
 	var name = formName.value;
 	var message = formMessage.value;
-	var helper = document.querySelector('.helper');
+	var location = formLocation.value;
+	console.log('Add Love');
+	
 	
 
 
-	if( name != "" && message != "" && name != "Name..." && message != "Message..."){
+	if( name != "Name..." && location != "Location..." && message != "Message..."){
+		console.log('If Statement');
 		addLove.name = name;
 		addLove.tweet = message;
 		addLove.sn = name;
-		helper.innerHTML = "Thanks for spreading the love!"
+		// helper.innerHTML = "Thanks for spreading the love!"
 
-		getLocalLocation();
-		// sendCity(location);
+		// getLocalLocation();
+		sendCity(location);
 		// console.log('okay');
 	} else {
 
-		helper.innerHTML = "Please include both fields!"
+		helper.innerHTML = "Please include all fields!"
 	}
 
 
+}
+
+function sendCity(location){
+	console.log('Send City ' + location);
+	// SEND LOCATION STRING TO GEOCODER
+	$.getJSON('/geocoder/'+location, getCoordinates);
+
+}
+	
+
+function getCoordinates(json){
+	console.log('Get Coordinates');
+	var lat = 0;
+	var lng = 0;
+	var place = "";
+	var status = json.json.status;
+	debugger
+
+	//IF CALL STATUS IS OKAY
+	if( status == "OK"){
+		console.log('Location Valid')
+			place = json.json.results[0].address_components[0].short_name;
+			lat = json.json.results[0].geometry.location.lat;
+			lng = json.json.results[0].geometry.location.lng;
+			
+			addLove.location = place;
+			addLove.lat = lat;
+			addLove.lng  = lng;
+			
+	} else if( status == "ZERO_RESULTS"){
+		console.log('location Not valid');
+		helper.innerHTML = "We can't find you, please put in another place."
+		
+
+	} 	
+
+
+	coordToValue(lat, lng);
 }
 
 function getLocalLocation(){
@@ -121,8 +179,6 @@ function getLocalLocation(){
 		// console.log("GET LOCAL LOCATION COORDINATES" + addLove.lat, addLove.lng);
 		coordToValue(addLove.lat, addLove.lng);
 }
-
-
 
 function coordToValue(lat, lng ){
 	console.log('Coord to X,Y' + lat);
@@ -267,10 +323,6 @@ function addPersonalDot(){
 		$addLovePop.toggle();
 	
 		ref.push(addLove);
-
-
-
-
 }
 
 
@@ -410,10 +462,33 @@ function resizeFunction(){
 	var menuPopTypeLogo = document.querySelector('.menuPopTypeLogo');
 	var heartMenu = document.querySelectorAll('.heartMenu');
 	var email = document.querySelector('.email');
+
 	
-	
+
 	logo.style.width = width / 8 + 'px';
 	logo.style.height = width / 16 + 'px';
+
+	addLovePop.style.width = width / 4 + 'px';
+	addLovePop.style.height = width / 3.8 + 'px';
+
+	formHeart.style.width = width / 25 + 'px';
+	formHeart.style.height = width / 25 + 'px';
+
+	formSubmit.style.width = width / 7 + 'px';
+	formSubmit.style.fontSize = width / 70 + 'px';
+	formName.style.fontSize = width / 70 + 'px';
+	formLocation.style.fontSize = width / 70 + 'px';
+	formMessage.style.fontSize = width / 70 + 'px';
+	helper.style.fontSize = width / 70 + 'px';
+
+	
+	for(var i = 0; i < formType.length; i++){
+	formType[i].style.fontSize = width / 70 + 'px';
+	}
+
+
+
+
 	
 	twitterIcon.style.width = width / 60 + 'px';
 	twitterIcon.style.height = width / 60 + 'px';
