@@ -6,6 +6,7 @@ soundOff.addEventListener('click',volumeFunction);
 var logo = document.querySelector("#logo1");
 // logo.addEventListener('click',menuToggle);
 var logoPop = document.querySelector('#logoPop');
+var pop = $( logoPop );
 var twitterIcon = document.querySelector('#twitterIcon');
 var facebookIcon = document.querySelector('#facebookIcon');
 var soundOnIcon = document.querySelector('#soundOn');
@@ -16,6 +17,7 @@ var formName = document.querySelector('input.formName');
 var formLocation = document.querySelector('input.formLocation');
 var formMessage = document.querySelector('.formMessage');
 var formSubmit = document.querySelector('.formSubmit');
+var addYours = document.querySelector('.addYours');
 var formType = document.querySelectorAll('.formType');
 var formHeart = document.querySelector('.heartLovePop');
 
@@ -53,9 +55,14 @@ formMessage.addEventListener("blur", function(){
 	}
 })
 formSubmit.addEventListener('click', addLove);
+
 footer.addEventListener('click', menuToggle);
 var addLovePop = document.querySelector('#addPop');
 var $addLovePop = $(addLovePop);
+addYours.addEventListener('click', function(){
+	$addLovePop.toggle();
+	pop.toggle();
+});
 var personalDotCheck = false;
 
 
@@ -476,6 +483,9 @@ function resizeFunction(){
 
 	formSubmit.style.width = width / 7 + 'px';
 	formSubmit.style.fontSize = width / 70 + 'px';
+	addYours.style.width = width / 7 + 'px';
+	addYours.style.fontSize = width / 70 + 'px';
+
 	formName.style.fontSize = width / 70 + 'px';
 	formLocation.style.fontSize = width / 70 + 'px';
 	formMessage.style.fontSize = width / 70 + 'px';
@@ -865,14 +875,16 @@ function menuToggle(event){
 	
 	if (event.target.id == "logo1"){
 
-		if(personalDotCheck == false){
-			$addLovePop.toggle();
-
-		} else {
-
-			var pop = $( logoPop );
 			pop.toggle();
-		}
+
+		// if(personalDotCheck == false){
+		// 	$addLovePop.toggle();
+
+		// } else {
+
+		// 	var pop = $( logoPop );
+		// 	pop.toggle();
+		// }
 	}
 	if(event.target.className == "addLove" || event.target.className == "heartLovePop" || event.target.className == "loveForm"){
 		console.log('ADD_LOVE');

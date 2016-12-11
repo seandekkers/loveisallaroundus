@@ -440,6 +440,19 @@ input.formLocation{
 	border-radius: 5px;
 }
 
+.addYours{
+	margin: auto;
+	width: 200px;
+	font-family: 'Annie Use Your Telescope', cursive;
+	font-size: 24px;
+	color: rgb(255,255,255);
+	text-align: center;
+	background-color: rgba(255,145,172,.8);
+	display: block;
+	border: 0px;
+	border-radius: 5px;
+}
+
 .formType{
 	font-family: 'Annie Use Your Telescope', cursive;
 	font-size: 24px;
