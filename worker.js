@@ -4,7 +4,7 @@ var request = require('request');
 
 ///FIREBASE///
 //MAXIUMUM DATABASE COUNT
-var max = 500;
+var max = 1000;
 
 var admin = require("firebase-admin");
 var serviceAccount = require("loveisallaroundus-58e78-firebase-adminsdk-vsjoj-ff3b60783c.json");
